@@ -4,7 +4,7 @@
 #include "Object.h"
 #include "Texture.h"
 #include "TimeMgr.h"
-Animation::Animation()
+Animation::Animation()  
 	: m_pAnimator(nullptr)
 	, m_CurFrame(0)
 	, m_pTex(nullptr)
