@@ -29,6 +29,13 @@ enum class OBJECT_GROUP
 	END = 30
 };
 
+enum class UI_GROUP
+{
+	BUTTON,
+	SCOLLBAR,
+	END = 10
+};
+
 enum class PEN_TYPE
 {
 	HOLLOW, RED, GREEN, 

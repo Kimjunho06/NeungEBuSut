@@ -7,6 +7,8 @@
 #include "KeyMgr.h"
 #include "CollisionMgr.h"
 #include "ResMgr.h"
+#include "UI.h"
+#include "TestButton.h"
 void Start_Scene::Init()
 {
 	Object* pObj = new Player;
@@ -14,6 +16,10 @@ void Start_Scene::Init()
 	pObj->SetScale(Vec2(100.f,100.f));
 	AddObject(pObj, OBJECT_GROUP::PLAYER);
 
+	Button* btn = new TestButton;
+	btn->SetPos((Vec2({ Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2 })));
+	btn->SetScale(Vec2(100.f, 100.f));
+	AddUI(btn, UI_GROUP::BUTTON);
 	// 몬스터 세팅 마구마구 배치를 해봅시다.
 
 	Vec2 vResolution = Core::GetInst()->GetResolution();

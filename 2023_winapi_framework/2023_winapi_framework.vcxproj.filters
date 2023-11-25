@@ -62,6 +62,21 @@
     <Filter Include="Engine\08. Module">
       <UniqueIdentifier>{b8698270-780f-4bb6-bf63-bf69c99fa2ad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Manager\UIManager">
+      <UniqueIdentifier>{62ee4755-bd57-4272-bbef-49184b469c04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI">
+      <UniqueIdentifier>{8bf0c829-0835-4bec-89ca-9556d0abd7ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\01.Button">
+      <UniqueIdentifier>{ae7817cd-222b-4123-b692-31c7a78faae7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\02.Slider">
+      <UniqueIdentifier>{12ad521e-02c3-4318-b95a-3c4635c649e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\00.MainUI">
+      <UniqueIdentifier>{4c39904c-0c50-417c-a7da-4db5e9104a20}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -154,6 +169,20 @@
     <ClInclude Include="2023_winapi_framework.h">
       <Filter>Default</Filter>
     </ClInclude>
+    <ClInclude Include="UIMgr.h">
+      <Filter>Engine\03. Manager\UIManager</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>Engine\09.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Engine\09.UI\01.Button</Filter>
+    </ClInclude>
+    <ClInclude Include="Slider.h">
+      <Filter>Engine\09.UI\02.Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="TestButton.h" />
+    <ClInclude Include="TestSlider.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -241,5 +270,19 @@
     <ClCompile Include="Animator.cpp">
       <Filter>Engine\07. Component</Filter>
     </ClCompile>
+    <ClCompile Include="UIMgr.cpp">
+      <Filter>Engine\03. Manager\UIManager</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>Engine\09.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Engine\09.UI\01.Button</Filter>
+    </ClCompile>
+    <ClCompile Include="Slider.cpp">
+      <Filter>Engine\09.UI\02.Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="TestButton.cpp" />
+    <ClCompile Include="TestSlider.cpp" />
   </ItemGroup>
 </Project>

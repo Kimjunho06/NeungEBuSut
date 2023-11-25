@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "SceneMgr.h"
+#include "UIMgr.h"
 #include "Start_Scene.h"
 #include "Game_Scene.h"
 void SceneMgr::Init()
@@ -15,12 +16,14 @@ void SceneMgr::Init()
 
 void SceneMgr::Update()
 {
+	if (UIMgr::GetInst()->isPause) return;
 	m_pCurScene->Update();
 	m_pCurScene->FinalUpdate();
 }
 
 void SceneMgr::Render(HDC _dc)
 {
+	if (UIMgr::GetInst()->isPause) return;
 	m_pCurScene->Render(_dc);
 }
 
