@@ -7,6 +7,8 @@ public:
 	~Monster();
 public:
 	void Update() override;
+	void Render(HDC _dc) override;
+
 	virtual void EnterCollision(Collider* _pOther) override;
 	virtual void ExitCollision(Collider* _pOther)  override;
 	virtual void StayCollision(Collider* _pOther)  override;

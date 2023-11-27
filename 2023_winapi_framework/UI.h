@@ -14,7 +14,7 @@ public:
 	const Vec2& GetPos() const { return m_vPos; }
 	const Vec2& GetScale() const { return m_vScale; }
 public:
-	bool IsClickAble();
+	bool IsClickAble(UI* ui);
 public:
 	Vec2 m_vPos;
 	Vec2 m_vScale;

@@ -54,8 +54,8 @@ void Object::Render(HDC _dc)
 {
 	/*Vec2 vPos = m_obj.GetPos();
 	Vec2 vScale = m_obj.GetScale();*/
-	RECT_RENDER(m_vPos.x, m_vPos.y, m_vScale.x, m_vScale.y, _dc);
-	Component_Render(_dc);
+	//RECT_RENDER(m_vPos.x, m_vPos.y, m_vScale.x, m_vScale.y, _dc);
+	//Component_Render(_dc);
 }
 
 void Object::EnterCollision(Collider* _pOther)
@@ -78,5 +78,19 @@ void Object::Component_Render(HDC _dc)
 	if (nullptr != m_pAnimator)
 		m_pAnimator->Render(_dc);
 
+}
+
+bool Object::IsClickAble(Object* obj)
+{
+	POINT mousePos = KeyMgr::GetInst()->GetMousePos();
+	int left = obj->m_vPos.x - obj->m_vScale.x / 2;
+	int right = obj->m_vPos.x + obj->m_vScale.x / 2;
+	int top = obj->m_vPos.y - obj->m_vScale.y / 2;
+	int bottom = obj->m_vPos.y + obj->m_vScale.y / 2;
+
+	if (mousePos.x < left || mousePos.x > right) return false;
+	if (mousePos.y < top || mousePos.y > bottom) return false;
+
+	return true;
 }
 

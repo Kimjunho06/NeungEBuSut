@@ -6,7 +6,7 @@
 TestButton::TestButton()
 	: texture(nullptr)
 {
-	texture = ResMgr::GetInst()->TexLoad(L"Player", L"Texture\\jiwoo.bmp");
+	texture = ResMgr::GetInst()->TexLoad(L"btn", L"Texture\\Bullet.bmp");
 }
 
 TestButton::~TestButton()

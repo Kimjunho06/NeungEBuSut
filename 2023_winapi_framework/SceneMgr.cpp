@@ -3,6 +3,9 @@
 #include "UIMgr.h"
 #include "Start_Scene.h"
 #include "Game_Scene.h"
+#include "ChameleonScene.h"
+#include "TurtleScene.h"
+
 void SceneMgr::Init()
 {
 	m_pCurScene = nullptr;
@@ -10,8 +13,19 @@ void SceneMgr::Init()
 	RegisterScene(L"Start_Scene",std::make_shared<Start_Scene>());
 	RegisterScene(L"Game_Scene", std::make_shared<Game_Scene>());
 
+	RegisterScene(L"Stage_1", std::make_shared<ChameleonScene>());
+	RegisterScene(L"Stage_2", std::make_shared<TurtleScene>());
+	RegisterScene(L"Stage_3", std::make_shared<ChameleonScene>());
+	RegisterScene(L"Stage_4", std::make_shared<ChameleonScene>());
+	RegisterScene(L"Stage_5", std::make_shared<ChameleonScene>());
+	RegisterScene(L"Stage_6", std::make_shared<ChameleonScene>());
+	RegisterScene(L"Stage_7", std::make_shared<ChameleonScene>());
+	RegisterScene(L"Stage_8", std::make_shared<ChameleonScene>());
+	RegisterScene(L"Stage_9", std::make_shared<ChameleonScene>());
+	RegisterScene(L"Stage_10", std::make_shared<ChameleonScene>());
+	
 	// Ã¹ ¾À ÁöÁ¤
-	LoadScene(L"Start_Scene");
+	LoadScene(L"Stage_1");
 }
 
 void SceneMgr::Update()

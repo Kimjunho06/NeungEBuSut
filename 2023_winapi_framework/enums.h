@@ -23,9 +23,12 @@ enum class KEY_TYPE
 enum class OBJECT_GROUP
 {
 	DEFAULT,
+	MAP,
 	PLAYER,
 	BULLET,
 	MONSTER,
+	CHAMELEON,
+	CHAMELEONCOLOR,
 	END = 30
 };
 
