@@ -182,6 +182,7 @@
     <ClInclude Include="define.h" />
     <ClInclude Include="enums.h" />
     <ClInclude Include="EventMgr.h" />
+    <ClInclude Include="Flag.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game_Scene.h" />
     <ClInclude Include="KeyMgr.h" />
@@ -203,6 +204,8 @@
     <ClInclude Include="TestSlider.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TimeMgr.h" />
+    <ClInclude Include="Turtle.h" />
+    <ClInclude Include="TurtleScene.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="UIMgr.h" />
     <ClInclude Include="Vec2.h" />
@@ -221,6 +224,7 @@
     <ClCompile Include="ColorObject.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="EventMgr.cpp" />
+    <ClCompile Include="Flag.cpp" />
     <ClCompile Include="Game_Scene.cpp" />
     <ClCompile Include="KeyMgr.cpp" />
     <ClCompile Include="main.cpp" />
@@ -239,6 +243,8 @@
     <ClCompile Include="TestSlider.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TimeMgr.cpp" />
+    <ClCompile Include="Turtle.cpp" />
+    <ClCompile Include="TurtleScene.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="UIMgr.cpp" />
     <ClCompile Include="Vec2.cpp" />

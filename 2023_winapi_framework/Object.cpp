@@ -60,10 +60,12 @@ void Object::Render(HDC _dc)
 
 void Object::EnterCollision(Collider* _pOther)
 {
+
 }
 
 void Object::ExitCollision(Collider* _pOther)
 {
+
 }
 
 void Object::StayCollision(Collider* _pOther)

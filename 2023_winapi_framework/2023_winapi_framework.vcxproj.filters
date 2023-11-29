@@ -83,6 +83,9 @@
     <Filter Include="Engine\04. Object\Object_Stage_1">
       <UniqueIdentifier>{0e69caaa-1a69-4233-bb8a-6426dfa105c2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\Object_Stage_2">
+      <UniqueIdentifier>{b546b585-4163-4930-805e-04745ea26517}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -205,6 +208,15 @@
     <ClInclude Include="Wood.h">
       <Filter>Engine\04. Object\Object_Stage_1</Filter>
     </ClInclude>
+    <ClInclude Include="TurtleScene.h">
+      <Filter>Engine\05. Scene\InGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Turtle.h">
+      <Filter>Engine\04. Object\Object_Stage_2</Filter>
+    </ClInclude>
+    <ClInclude Include="Flag.h">
+      <Filter>Engine\04. Object\Object_Stage_2</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -321,6 +333,15 @@
     </ClCompile>
     <ClCompile Include="Wood.cpp">
       <Filter>Engine\04. Object\Object_Stage_1</Filter>
+    </ClCompile>
+    <ClCompile Include="TurtleScene.cpp">
+      <Filter>Engine\05. Scene\InGameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Turtle.cpp">
+      <Filter>Engine\04. Object\Object_Stage_2</Filter>
+    </ClCompile>
+    <ClCompile Include="Flag.cpp">
+      <Filter>Engine\04. Object\Object_Stage_2</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

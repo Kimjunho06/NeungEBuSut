@@ -9,6 +9,8 @@
 void ChameleonScene::Init()
 {
 	srand((unsigned int)time(NULL));
+	chameleonObj.clear();
+	chameleonColorObj.clear();
 
 	chameleonCnt = 3;
 	POINT resolution = Core::GetInst()->GetResolution();
@@ -23,15 +25,19 @@ void ChameleonScene::Init()
 		
 		Vec2 vColorPos = Vec2({ xOffset + x * (i-1), y - yOffset + 70});
 		Vec2 vColorScale = Vec2(512.f * 0.2f, 512.f * 0.2f);
+		Vec2 vColorScaleOffset = Vec2(0.2f, 0.2f);
 
 		Vec2 vPos = Vec2({ xOffset + x * (i-1), y - 20 + 100});
 		Vec2 vScale = Vec2(512.f * 0.3f, 512.f * 0.3f);
+		Vec2 vScaleOffset = Vec2(0.3f, 0.3f);
 
 		chameleon->SetPos(vPos);
 		chameleon->SetScale(vScale);
+		chameleon->SetScaleOffset(vScaleOffset);
 
 		chameleonColor->SetPos(vColorPos);
 		chameleonColor->SetScale(vColorScale);
+		chameleonColor->SetScaleOffset(vColorScaleOffset);
 
 		AddObject(chameleon, OBJECT_GROUP::CHAMELEON);
 		AddObject(chameleonColor, OBJECT_GROUP::CHAMELEONCOLOR);
@@ -42,8 +48,10 @@ void ChameleonScene::Init()
 	int yOffset = 20;
 	Vec2 vPos = Vec2({ resolution.x / 2, resolution.y / 2 + yOffset *2 + 100 });
 	Vec2 vScale = Vec2({ 448, 212 });
+	Vec2 vScaleOffset = Vec2(1.f, 1.f);
 	wood->SetPos(vPos); // 2048 512
 	wood->SetScale(vScale);
+	wood->SetScaleOffset(vScaleOffset);
 	AddObject(wood, OBJECT_GROUP::MAP);
 
 	matchCnt = 0;

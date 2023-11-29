@@ -4,6 +4,7 @@
 #include "Object.h"
 #include "Texture.h"
 #include "TimeMgr.h"
+#include "Core.h"
 Animation::Animation()  
 	: m_pAnimator(nullptr)
 	, m_CurFrame(0)
@@ -42,20 +43,44 @@ void Animation::Render(HDC _dc)
 {
 	Object* pObj = m_pAnimator->GetObj();
 	Vec2 vPos = pObj->GetPos();
+	Vec2 vScaleOffset = pObj->GetScaleOffset();
 
+	HDC alphaDC = CreateCompatibleDC(_dc);
+	HBITMAP alphabit = CreateCompatibleBitmap(_dc, Core::GetInst()->GetResolution().x, Core::GetInst()->GetResolution().y);
+	SelectObject(alphaDC, alphabit);
+
+	PatBlt(alphaDC, 0, 0, Core::GetInst()->GetResolution().x, Core::GetInst()->GetResolution().y, WHITENESS);
+	
 	// 오프셋 적용
 	vPos = vPos + m_vecAnimFrame[m_CurFrame].vOffset;
+
+	StretchBlt(alphaDC
+		, 0
+		, 0
+		, (int)(m_vecAnimFrame[m_CurFrame].vSlice.x) * vScaleOffset.x
+		, (int)(m_vecAnimFrame[m_CurFrame].vSlice.y) * vScaleOffset.y
+		, m_pTex->GetDC()
+		, (int)(m_vecAnimFrame[m_CurFrame].vLT.x)
+		, (int)(m_vecAnimFrame[m_CurFrame].vLT.y)
+		, (int)(m_vecAnimFrame[m_CurFrame].vSlice.x)
+		, (int)(m_vecAnimFrame[m_CurFrame].vSlice.y)
+		, SRCCOPY);
+
 	TransparentBlt(_dc
-		,(int)(vPos.x - m_vecAnimFrame[m_CurFrame].vSlice.x /2.f)
-		,(int)(vPos.y - m_vecAnimFrame[m_CurFrame].vSlice.y / 2.f)
-		,(int)(m_vecAnimFrame[m_CurFrame].vSlice.x)
-		,(int)(m_vecAnimFrame[m_CurFrame].vSlice.y)
-		,m_pTex->GetDC()
-		,(int)(m_vecAnimFrame[m_CurFrame].vLT.x)
-		,(int)(m_vecAnimFrame[m_CurFrame].vLT.y)
-		,(int)(m_vecAnimFrame[m_CurFrame].vSlice.x)
-		,(int)(m_vecAnimFrame[m_CurFrame].vSlice.y)
+		,(int)(vPos.x - m_vecAnimFrame[m_CurFrame].vSlice.x * vScaleOffset.x /2.f)
+		,(int)(vPos.y - m_vecAnimFrame[m_CurFrame].vSlice.y * vScaleOffset.y / 2.f)
+		,(int)(m_vecAnimFrame[m_CurFrame].vSlice.x) * vScaleOffset.x
+		,(int)(m_vecAnimFrame[m_CurFrame].vSlice.y) * vScaleOffset.y
+		,alphaDC
+		,0
+		,0
+		,(int)(m_vecAnimFrame[m_CurFrame].vSlice.x) * vScaleOffset.x
+		,(int)(m_vecAnimFrame[m_CurFrame].vSlice.y) * vScaleOffset.y
 		,RGB(255,0,255));
+
+	DeleteDC(alphaDC);
+	DeleteObject(alphabit);
+
 }
 
 void Animation::Create(Texture* _pTex, Vec2 _vLT, Vec2 _vSliceSize, Vec2 _vStep, int _framecount, float _fDuration)

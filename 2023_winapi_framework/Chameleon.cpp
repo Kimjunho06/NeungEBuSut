@@ -43,6 +43,7 @@ void Chameleon::Render(HDC _dc)
 {
 	Vec2 vPos = GetPos();
 	Vec2 vScale = GetScale();
+	Vec2 vScaleOffset = GetScaleOffset();
 	int Width = textures[colorIdx]->GetWidth();
 	int Height = textures[colorIdx]->GetHeight();
 
@@ -55,7 +56,7 @@ void Chameleon::Render(HDC _dc)
 	StretchBlt(alphaDC
 		, 0
 		, 0
-		, Width * 0.3, Height * 0.3, textures[colorIdx]->GetDC()
+		, Width * vScaleOffset.x, Height * vScaleOffset.y, textures[colorIdx]->GetDC()
 		, 0
 		, 0
 		, Width
@@ -65,8 +66,8 @@ void Chameleon::Render(HDC _dc)
 	TransparentBlt(_dc
 		, (int)(vPos.x - vScale.x / 2)
 		, (int)(vPos.y - vScale.y / 2)
-		, Width * 0.3, Height * 0.3, alphaDC
-		, 0, 0, Width * 0.3, Height * 0.3, RGB(255, 0, 255));
+		, Width * vScaleOffset.x, Height * vScaleOffset.y, alphaDC
+		, 0, 0, Width * vScaleOffset.x, Height * vScaleOffset.y, RGB(255, 0, 255));
 
 
 	DeleteDC(alphaDC);

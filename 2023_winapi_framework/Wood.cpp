@@ -23,6 +23,8 @@ void Wood::Render(HDC _dc)
 {
 	Vec2 vPos = GetPos();
 	Vec2 vScale = GetScale();
+	Vec2 vScaleOffset = GetScaleOffset();
+
 	int Width = texture->GetWidth();
 	int Height = texture->GetHeight();
 
@@ -43,8 +45,8 @@ void Wood::Render(HDC _dc)
 		, SRCCOPY);
 
 	TransparentBlt(_dc
-		, (int)(vPos.x - vScale.x / 2)
-		, (int)(vPos.y - vScale.y / 2)
+		, (int)(vPos.x - vScale.x / 2) * vScaleOffset.x
+		, (int)(vPos.y - vScale.y / 2) * vScaleOffset.y
 		, Width, Height, alphaDC
 		, 0, 0, Width, Height, RGB(255, 0, 255));
 
