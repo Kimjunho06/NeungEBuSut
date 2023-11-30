@@ -61,10 +61,10 @@ void Crocodile::Render(HDC _dc)
 void Crocodile::EnterCollision(Collider* _pOther)
 {
 	const Object* pOtherObj = _pOther->GetObj();
-	if (pOtherObj->GetName() == L"Fish" && isBite)
+	if (pOtherObj->GetName() == L"Fish")
 	{
 		if (KEY_DOWN(KEY_TYPE::LBUTTON)) {
-			EventMgr::GetInst()->ChangeScene(L"Stage_1");
+			EventMgr::GetInst()->ChangeScene(L"Stage_4");
 		}
 		//SceneMgr::GetInst()->LoadScene(L"Stage_1");
 	}
@@ -73,10 +73,10 @@ void Crocodile::EnterCollision(Collider* _pOther)
 void Crocodile::StayCollision(Collider* _pOther)
 {
 	const Object* pOtherObj = _pOther->GetObj();
-	if (pOtherObj->GetName() == L"Fish" && isBite)
+	if (pOtherObj->GetName() == L"Fish" && !isBite)
 	{
-		if (KEY_DOWN(KEY_TYPE::LBUTTON)) {
-			EventMgr::GetInst()->ChangeScene(L"Stage_1");
+		if (KEY_DOWN(KEY_TYPE::LBUTTON) ) {
+			EventMgr::GetInst()->ChangeScene(L"Stage_4");
 		}
 		//SceneMgr::GetInst()->LoadScene(L"Stage_1");
 	}
