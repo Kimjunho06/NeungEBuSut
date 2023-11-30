@@ -1,16 +1,16 @@
 #pragma once
-#include "Slider.h"
+#include "Object.h"
 class Texture;
-class TestSlider :
-    public Slider
+class Rock :
+    public Object
 {
 public:
-    TestSlider();
-    virtual ~TestSlider();
+    Rock();
+    ~Rock();
 public:
     void Update() override;
     void Render(HDC _dc) override;
-public:
+private:
     Texture* texture;
 };
 

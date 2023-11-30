@@ -75,10 +75,10 @@ void Object::StayCollision(Collider* _pOther)
 
 void Object::Component_Render(HDC _dc)
 {
-	if (nullptr != m_pCollider)
-		m_pCollider->Render(_dc);
 	if (nullptr != m_pAnimator)
 		m_pAnimator->Render(_dc);
+	if (nullptr != m_pCollider)
+		m_pCollider->Render(_dc);
 
 }
 

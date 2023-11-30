@@ -31,6 +31,11 @@ enum class OBJECT_GROUP
 	CHAMELEONCOLOR,
 	TURTLE,
 	FLAG,
+	FISH,
+	CROCODILE,
+	CLAM,
+	SEAOTTER,
+	ROCK,
 	END = 30
 };
 
@@ -59,4 +64,12 @@ enum class EVENT_TYPE
 	CREATE_OBJECT,
 	SCENE_CHANGE,
 	END
+};
+
+enum class DIRECTION 
+{
+	LEFT = -1,
+	RIGHT = 1,
+	TOP = -1,
+	BOTTOM = 1
 };

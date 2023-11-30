@@ -13,10 +13,6 @@ TestButton::~TestButton()
 {
 }
 
-void TestButton::Init()
-{
-}
-
 void TestButton::Update()
 {
 

@@ -11,8 +11,8 @@ public:
 	//POINT m_ptScale;
 public:
 	virtual void Update() abstract;
-	virtual void FinalUpdate() final;
 	virtual void Render(HDC _dc) abstract;
+	virtual void FinalUpdate() final;
 	virtual void EnterCollision(Collider* _pOther);
 	virtual void ExitCollision(Collider* _pOther);
 	virtual void StayCollision(Collider* _pOther);

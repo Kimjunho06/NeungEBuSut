@@ -7,7 +7,6 @@ public:
     Slider();
     virtual ~Slider();
 public:
-    virtual void Init() abstract;
     virtual void Update() abstract;
     virtual void Render(HDC _dc) abstract;
 public:

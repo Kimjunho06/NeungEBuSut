@@ -7,10 +7,7 @@ TestSlider::TestSlider()
 
 TestSlider::~TestSlider()
 {
-}
 
-void TestSlider::Init()
-{
 }
 
 void TestSlider::Update()

@@ -12,7 +12,7 @@
 
 Turtle::Turtle()
 	: texture(nullptr)
-	, speed(1)
+	, _speed(1)
 {
 	Vec2 vPos = GetPos();
 	texture = ResMgr::GetInst()->TexLoad(L"Turtle", L"Texture\\TurtleSheet.bmp"); // 2048 / 4 = 512.512
@@ -37,14 +37,8 @@ void Turtle::Update()
 	GetAnimator()->Update();
 
 	Vec2 vPos = GetPos();
-	
-	if (IsClickAble(this)) {
-		if (KEY_DOWN(KEY_TYPE::LBUTTON)) {
-			speed *= 2;
-		}
-	}
 
-	vPos.x += fDT * speed;
+	vPos.x += fDT * _speed;
 
 	SetPos(vPos);
 }
@@ -58,7 +52,7 @@ void Turtle::EnterCollision(Collider* _pOther) {
 	const Object* pOtherObj = _pOther->GetObj();
 	if (pOtherObj->GetName() == L"Flag")
 	{
-		EventMgr::GetInst()->ChangeScene(L"Stage_1");
+		EventMgr::GetInst()->ChangeScene(L"Stage_3");
 		//SceneMgr::GetInst()->LoadScene(L"Stage_1");
 	}
 }

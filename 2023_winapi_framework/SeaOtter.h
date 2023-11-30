@@ -1,16 +1,18 @@
 #pragma once
-#include "Slider.h"
+#include "Object.h"
 class Texture;
-class TestSlider :
-    public Slider
+class SeaOtter :
+    public Object
 {
 public:
-    TestSlider();
-    virtual ~TestSlider();
+    SeaOtter();
+    ~SeaOtter();
 public:
     void Update() override;
     void Render(HDC _dc) override;
-public:
+private:
     Texture* texture;
+    float hitTime;
+    bool isHit;
 };
 

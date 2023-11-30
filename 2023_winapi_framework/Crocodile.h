@@ -1,22 +1,21 @@
 #pragma once
 #include "Object.h"
 class Texture;
-class Turtle :
+class Crocodile :
     public Object
 {
 public:
-    Turtle();
-    ~Turtle();
+    Crocodile();
+    ~Crocodile();
 public:
     void Update() override;
     void Render(HDC _dc) override;
 public:
     void EnterCollision(Collider* _pOther) override;
-public:
-    void SetSpeed(float speed) { _speed = speed; }
-    const float GetSpeed() const { return _speed; }
+    void StayCollision(Collider* _pOther) override;
 private:
-    float _speed;
     Texture* texture;
+    float biteTime;
+    bool isBite;
 };
 

@@ -86,6 +86,18 @@
     <Filter Include="Engine\04. Object\Object_Stage_2">
       <UniqueIdentifier>{b546b585-4163-4930-805e-04745ea26517}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\09.UI\UI_Stage_1">
+      <UniqueIdentifier>{110b8d07-f5ce-466d-b81d-202b9a3908b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\UI_Stage_2">
+      <UniqueIdentifier>{831b2af9-3c34-4ad4-9495-adc0f8597cae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\Object_Stage_3">
+      <UniqueIdentifier>{4de27617-efb9-4509-941e-19776d1f5700}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\Object_Stage_4">
+      <UniqueIdentifier>{012216fc-3ec3-406a-802f-5ec1c9af5ba5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -217,6 +229,28 @@
     <ClInclude Include="Flag.h">
       <Filter>Engine\04. Object\Object_Stage_2</Filter>
     </ClInclude>
+    <ClInclude Include="CrocodileScene.h">
+      <Filter>Engine\05. Scene\InGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="TurtleButton.h">
+      <Filter>Engine\09.UI\UI_Stage_2</Filter>
+    </ClInclude>
+    <ClInclude Include="Crocodile.h">
+      <Filter>Engine\04. Object\Object_Stage_3</Filter>
+    </ClInclude>
+    <ClInclude Include="Fish.h">
+      <Filter>Engine\04. Object\Object_Stage_3</Filter>
+    </ClInclude>
+    <ClInclude Include="SeaOtterScene.h">
+      <Filter>Engine\05. Scene\InGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="SeaOtter.h">
+      <Filter>Engine\04. Object\Object_Stage_4</Filter>
+    </ClInclude>
+    <ClInclude Include="Rock.h">
+      <Filter>Engine\04. Object\Object_Stage_4</Filter>
+    </ClInclude>
+    <ClInclude Include="Clam.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -343,5 +377,27 @@
     <ClCompile Include="Flag.cpp">
       <Filter>Engine\04. Object\Object_Stage_2</Filter>
     </ClCompile>
+    <ClCompile Include="CrocodileScene.cpp">
+      <Filter>Engine\05. Scene\InGameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="TurtleButton.cpp">
+      <Filter>Engine\09.UI\UI_Stage_2</Filter>
+    </ClCompile>
+    <ClCompile Include="Crocodile.cpp">
+      <Filter>Engine\04. Object\Object_Stage_3</Filter>
+    </ClCompile>
+    <ClCompile Include="Fish.cpp">
+      <Filter>Engine\04. Object\Object_Stage_3</Filter>
+    </ClCompile>
+    <ClCompile Include="SeaOtterScene.cpp">
+      <Filter>Engine\05. Scene\InGameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="SeaOtter.cpp">
+      <Filter>Engine\04. Object\Object_Stage_4</Filter>
+    </ClCompile>
+    <ClCompile Include="Rock.cpp">
+      <Filter>Engine\04. Object\Object_Stage_4</Filter>
+    </ClCompile>
+    <ClCompile Include="Clam.cpp" />
   </ItemGroup>
 </Project>

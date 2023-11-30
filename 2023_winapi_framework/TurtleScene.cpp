@@ -5,6 +5,8 @@
 #include "Core.h"
 #include "CollisionMgr.h"
 #include "Flag.h"	
+#include "TurtleButton.h"	
+#include "Button.h"	
 
 void TurtleScene::Init()
 {
@@ -12,6 +14,7 @@ void TurtleScene::Init()
 
 	Object* turtle = new Turtle;
 	Object* flag = new Flag;
+	TurtleButton* clickBtn = new TurtleButton;
 
 	float yOffset = 100.f;
 	float x = 256 * 0.3f + 10;
@@ -25,11 +28,17 @@ void TurtleScene::Init()
 	flag->SetScale(Vec2(512.f * 0.3f, 512.f * 0.3f));
 	flag->SetScaleOffset({0.3f, 0.3f});
 
+	clickBtn->SetPos(Vec2(resolution.x / 2.f, y + 270));
+	clickBtn->SetScale(Vec2(512.f * 0.3f, 512.f * 0.3f));
+	clickBtn->SetScaleOffset(Vec2(0.3f, 0.3f));
+	
 	turtle->SetName(L"Turtle");
 	flag->SetName(L"Flag");
 
 	AddObject(turtle, OBJECT_GROUP::TURTLE);
 	AddObject(flag, OBJECT_GROUP::FLAG);
+	
+	AddUI(clickBtn, UI_GROUP::BUTTON);
 
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::TURTLE, OBJECT_GROUP::FLAG);
 }
@@ -38,7 +47,18 @@ void TurtleScene::Update()
 {
 	Scene::Update();
 
-	//SceneMgr::GetInst()->LoadScene(L"Start_Scene");
+	UI* buttonObj = GetGroupUI(UI_GROUP::BUTTON)[0];
+	Object* turtleObj = GetGroupObject(OBJECT_GROUP::TURTLE)[0];
+	
+	Turtle* turtle = (Turtle*)turtleObj;
+	TurtleButton* turtleBtn = (TurtleButton*)buttonObj;
+
+	//Vec2 vPos = turtle->GetPos();
+	//vPos.x += turtleBtn->GetSpeed();
+
+	//turtle->SetPos(vPos);
+
+	turtle->SetSpeed(turtleBtn->GetSpeed());
 }
 
 void TurtleScene::Render(HDC _dc)

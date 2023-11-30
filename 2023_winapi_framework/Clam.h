@@ -1,16 +1,19 @@
 #pragma once
-#include "Slider.h"
+#include "Object.h"
 class Texture;
-class TestSlider :
-    public Slider
+class Clam :
+    public Object
 {
 public:
-    TestSlider();
-    virtual ~TestSlider();
+    Clam();
+    ~Clam();
 public:
     void Update() override;
     void Render(HDC _dc) override;
-public:
+private:
     Texture* texture;
+    float hitTime;
+    int cnt;
+    bool isHit;
 };
 

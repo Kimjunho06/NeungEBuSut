@@ -5,6 +5,8 @@
 #include "Game_Scene.h"
 #include "ChameleonScene.h"
 #include "TurtleScene.h"
+#include "CrocodileScene.h"
+#include "SeaOtterScene.h"
 
 void SceneMgr::Init()
 {
@@ -15,8 +17,8 @@ void SceneMgr::Init()
 
 	RegisterScene(L"Stage_1", std::make_shared<ChameleonScene>());
 	RegisterScene(L"Stage_2", std::make_shared<TurtleScene>());
-	RegisterScene(L"Stage_3", std::make_shared<ChameleonScene>());
-	RegisterScene(L"Stage_4", std::make_shared<ChameleonScene>());
+	RegisterScene(L"Stage_3", std::make_shared<CrocodileScene>());
+	RegisterScene(L"Stage_4", std::make_shared<SeaOtterScene>());
 	RegisterScene(L"Stage_5", std::make_shared<ChameleonScene>());
 	RegisterScene(L"Stage_6", std::make_shared<ChameleonScene>());
 	RegisterScene(L"Stage_7", std::make_shared<ChameleonScene>());
@@ -25,7 +27,7 @@ void SceneMgr::Init()
 	RegisterScene(L"Stage_10", std::make_shared<ChameleonScene>());
 	
 	// Ã¹ ¾À ÁöÁ¤
-	LoadScene(L"Stage_1");
+	LoadScene(L"Stage_4");
 }
 
 void SceneMgr::Update()
