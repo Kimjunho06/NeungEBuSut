@@ -173,6 +173,8 @@
     <ClInclude Include="BaseWindow.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Capybara.h" />
+    <ClInclude Include="CapybaraScene.h" />
     <ClInclude Include="Chameleon.h" />
     <ClInclude Include="ChameleonScene.h" />
     <ClInclude Include="Clam.h" />
@@ -194,6 +196,8 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="PathMgr.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Penguin.h" />
+    <ClInclude Include="PenguinScene.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Res.h" />
     <ClInclude Include="ResMgr.h" />
@@ -225,6 +229,8 @@
     <ClCompile Include="BaseWindow.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Capybara.cpp" />
+    <ClCompile Include="CapybaraScene.cpp" />
     <ClCompile Include="Chameleon.cpp" />
     <ClCompile Include="ChameleonScene.cpp" />
     <ClCompile Include="Clam.cpp" />
@@ -243,6 +249,8 @@
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="PathMgr.cpp" />
+    <ClCompile Include="Penguin.cpp" />
+    <ClCompile Include="PenguinScene.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Res.cpp" />
     <ClCompile Include="ResMgr.cpp" />

@@ -12,8 +12,9 @@
 SeaOtter::SeaOtter()
 	: texture(nullptr)
 	, hitTime(3.f)
+	, isHit(false)
 {
-	texture = ResMgr::GetInst()->TexLoad(L"SeaOtter", L"Texture\\SeaOtterSheet.bmp");
+	texture = ResMgr::GetInst()->TexLoad(L"SeaOtter", L"Texture\\CapybaraSheet.bmp");
 
 	CreateAnimator();
 	GetAnimator()->CreateAnim(L"SeaOtter_idle", texture, Vec2(0.f, 0.f),

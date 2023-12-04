@@ -1,49 +1,48 @@
 #include "pch.h"
-#include "Fish.h"
+#include "Penguin.h"
 #include "ResMgr.h"
-#include "Collider.h"
-#include "CollisionMgr.h"
+#include "KeyMgr.h"
 #include "Texture.h"
 #include "Core.h"
 
-Fish::Fish()
+Penguin::Penguin()
 	: texture(nullptr)
-	, speed(2)
-	, dir(DIRECTION::RIGHT)
+	, isClick(false)
+	, speed(0)
 {
-	Vec2 vPos = GetPos();
+	texture = ResMgr::GetInst()->TexLoad(L"Penguin", L"Texture\\Penguin.bmp");
 
-	texture = ResMgr::GetInst()->TexLoad(L"Fish", L"Texture\\Fish.bmp");
-
-	CreateCollider();
-	GetCollider()->SetScale(Vec2(512.f * 0.1f, 256.f * 0.15f));
-	GetCollider()->SetOffSetPos(Vec2(vPos.x, vPos.y - 40));
+	speed = -((rand() % 5) + 1);
 }
 
-Fish::~Fish()
+Penguin::~Penguin()
 {
-
 }
 
-void Fish::Update()
+void Penguin::Update()
 {
-	Vec2 vPos = GetPos();
-	POINT resolution = Core::GetInst()->GetResolution();
-	int offset = 60;
+	if (!isClick) {
+		Vec2 vPos = GetPos();
+		POINT resolution = Core::GetInst()->GetResolution();
+		int offset = 80;
 
-	if (vPos.x >= resolution.x - offset) {
-		dir = DIRECTION::LEFT;
+		if (vPos.x <= offset) {
+			vPos.x = Core::GetInst()->GetResolution().x / 2 + 200;
+			speed = -((rand() % 5) + 1);
+		}
+		vPos.x += speed;
+
+		SetPos(vPos);
 	}
-	else if (vPos.x <= offset) {
-		dir = DIRECTION::RIGHT;
+
+	if (IsClickAble(this)) {
+		if (KEY_DOWN(KEY_TYPE::LBUTTON)) {
+			isClick = true;
+		}
 	}
-	vPos.x += speed * (int)dir;
-
-	SetPos(vPos);
-
 }
 
-void Fish::Render(HDC _dc)
+void Penguin::Render(HDC _dc)
 {
 	Vec2 vPos = GetPos();
 	Vec2 vScale = GetScale();

@@ -36,6 +36,8 @@ enum class OBJECT_GROUP
 	CLAM,
 	SEAOTTER,
 	ROCK,
+	PENGUIN,
+	CAPYBARA,
 	END = 30
 };
 

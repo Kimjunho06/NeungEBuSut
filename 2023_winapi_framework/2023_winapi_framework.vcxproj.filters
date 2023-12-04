@@ -98,6 +98,12 @@
     <Filter Include="Engine\04. Object\Object_Stage_4">
       <UniqueIdentifier>{012216fc-3ec3-406a-802f-5ec1c9af5ba5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\Object_Stage_5">
+      <UniqueIdentifier>{ce2ed4ce-5160-4572-9077-7012a5917fe8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\Object_Stage_6">
+      <UniqueIdentifier>{36d59fd8-1633-42d6-b627-fb8965a8aed1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -250,7 +256,21 @@
     <ClInclude Include="Rock.h">
       <Filter>Engine\04. Object\Object_Stage_4</Filter>
     </ClInclude>
-    <ClInclude Include="Clam.h" />
+    <ClInclude Include="Clam.h">
+      <Filter>Engine\04. Object\Object_Stage_4</Filter>
+    </ClInclude>
+    <ClInclude Include="PenguinScene.h">
+      <Filter>Engine\05. Scene\InGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Penguin.h">
+      <Filter>Engine\04. Object\Object_Stage_5</Filter>
+    </ClInclude>
+    <ClInclude Include="CapybaraScene.h">
+      <Filter>Engine\05. Scene\InGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Capybara.h">
+      <Filter>Engine\04. Object\Object_Stage_6</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -398,6 +418,20 @@
     <ClCompile Include="Rock.cpp">
       <Filter>Engine\04. Object\Object_Stage_4</Filter>
     </ClCompile>
-    <ClCompile Include="Clam.cpp" />
+    <ClCompile Include="Clam.cpp">
+      <Filter>Engine\04. Object\Object_Stage_4</Filter>
+    </ClCompile>
+    <ClCompile Include="PenguinScene.cpp">
+      <Filter>Engine\05. Scene\InGameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Penguin.cpp">
+      <Filter>Engine\04. Object\Object_Stage_5</Filter>
+    </ClCompile>
+    <ClCompile Include="CapybaraScene.cpp">
+      <Filter>Engine\05. Scene\InGameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Capybara.cpp">
+      <Filter>Engine\04. Object\Object_Stage_6</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
