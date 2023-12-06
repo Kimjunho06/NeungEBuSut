@@ -36,7 +36,7 @@ void PenguinScene::Update()
 		if (!obj->isClick)
 			return;
 	}
-	SceneMgr::GetInst()->LoadScene(L"Stage_1");
+	SceneMgr::GetInst()->LoadScene(L"Stage_6");
 }
 
 void PenguinScene::Render(HDC _dc)
