@@ -104,6 +104,9 @@
     <Filter Include="Engine\04. Object\Object_Stage_6">
       <UniqueIdentifier>{36d59fd8-1633-42d6-b627-fb8965a8aed1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\Object_Stage_7">
+      <UniqueIdentifier>{c59a30b1-362c-45ce-8104-cd9bdd612c7f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -271,6 +274,18 @@
     <ClInclude Include="Capybara.h">
       <Filter>Engine\04. Object\Object_Stage_6</Filter>
     </ClInclude>
+    <ClInclude Include="ToucanScene.h">
+      <Filter>Engine\05. Scene\InGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="SlothScene.h">
+      <Filter>Engine\05. Scene\InGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="KangarooScene.h">
+      <Filter>Engine\05. Scene\InGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Toucan.h">
+      <Filter>Engine\04. Object\Object_Stage_7</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -432,6 +447,18 @@
     </ClCompile>
     <ClCompile Include="Capybara.cpp">
       <Filter>Engine\04. Object\Object_Stage_6</Filter>
+    </ClCompile>
+    <ClCompile Include="ToucanScene.cpp">
+      <Filter>Engine\05. Scene\InGameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="KangarooScene.cpp">
+      <Filter>Engine\05. Scene\InGameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="SlothScene.cpp">
+      <Filter>Engine\05. Scene\InGameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Toucan.cpp">
+      <Filter>Engine\04. Object\Object_Stage_7</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
