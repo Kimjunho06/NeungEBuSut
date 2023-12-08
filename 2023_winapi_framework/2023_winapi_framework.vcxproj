@@ -191,7 +191,6 @@
     <ClInclude Include="Flag.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game_Scene.h" />
-    <ClInclude Include="KangarooScene.h" />
     <ClInclude Include="KeyMgr.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Object.h" />
@@ -210,15 +209,12 @@
     <ClInclude Include="SeaOtterScene.h" />
     <ClInclude Include="SelectGDI.h" />
     <ClInclude Include="Slider.h" />
-    <ClInclude Include="SlothScene.h" />
     <ClInclude Include="Start_Scene.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TestButton.h" />
     <ClInclude Include="TestSlider.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TimeMgr.h" />
-    <ClInclude Include="Toucan.h" />
-    <ClInclude Include="ToucanScene.h" />
     <ClInclude Include="Turtle.h" />
     <ClInclude Include="TurtleButton.h" />
     <ClInclude Include="TurtleScene.h" />
@@ -248,7 +244,6 @@
     <ClCompile Include="Fish.cpp" />
     <ClCompile Include="Flag.cpp" />
     <ClCompile Include="Game_Scene.cpp" />
-    <ClCompile Include="KangarooScene.cpp" />
     <ClCompile Include="KeyMgr.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monster.cpp" />
@@ -266,14 +261,11 @@
     <ClCompile Include="SeaOtterScene.cpp" />
     <ClCompile Include="SelectGDI.cpp" />
     <ClCompile Include="Slider.cpp" />
-    <ClCompile Include="SlothScene.cpp" />
     <ClCompile Include="Start_Scene.cpp" />
     <ClCompile Include="TestButton.cpp" />
     <ClCompile Include="TestSlider.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TimeMgr.cpp" />
-    <ClCompile Include="Toucan.cpp" />
-    <ClCompile Include="ToucanScene.cpp" />
     <ClCompile Include="Turtle.cpp" />
     <ClCompile Include="TurtleButton.cpp" />
     <ClCompile Include="TurtleScene.cpp" />
