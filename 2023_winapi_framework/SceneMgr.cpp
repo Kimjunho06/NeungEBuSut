@@ -31,7 +31,7 @@ void SceneMgr::Init()
 	RegisterScene(L"Stage_9", std::make_shared<SlothScene>());
 	
 	// Ã¹ ¾À ÁöÁ¤
-	LoadScene(L"Stage_6"); //
+	LoadScene(L"Stage_6");
 }
 
 void SceneMgr::Update()
