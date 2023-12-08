@@ -29,7 +29,7 @@ void SceneMgr::Init()
 	RegisterScene(L"Stage_10", std::make_shared<ChameleonScene>());
 	
 	// Ã¹ ¾À ÁöÁ¤
-	LoadScene(L"Stage_6");
+	LoadScene(L"Stage_6"); //
 }
 
 void SceneMgr::Update()

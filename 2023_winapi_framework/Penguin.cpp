@@ -27,7 +27,7 @@ void Penguin::Update()
 		int offset = 80;
 
 		if (vPos.x <= offset) {
-			vPos.x = Core::GetInst()->GetResolution().x / 2 + 200;
+			vPos.x = Core::GetInst()->GetResolution().x / 2 + 180;
 			speed = -((rand() % 5) + 1);
 		}
 		vPos.x += speed;

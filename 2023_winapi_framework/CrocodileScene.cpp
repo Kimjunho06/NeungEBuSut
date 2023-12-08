@@ -41,6 +41,9 @@ void CrocodileScene::Update()
 
 void CrocodileScene::Render(HDC _dc)
 {
+	Vec2 vPos = Vec2(Core::GetInst()->GetResolution());
+	Vec2 vScale = Vec2(450, 620);
+	RECT_RENDER(vPos.x / 2, vPos.y / 2 + 20, vScale.x, vScale.y, _dc);
 	Scene::Render(_dc);
 }
 
