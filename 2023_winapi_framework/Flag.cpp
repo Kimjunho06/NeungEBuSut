@@ -4,9 +4,11 @@
 #include "Collider.h"
 #include "Core.h"
 #include "Texture.h"
+#include "TimeMgr.h"
 
 Flag::Flag()
 	: texture(nullptr)
+	, isKangarooFlag(false)
 {
 	Vec2 vPos = GetPos();
 	texture = ResMgr::GetInst()->TexLoad(L"Flag", L"Texture\\Flag.bmp");
@@ -17,7 +19,15 @@ Flag::Flag()
 }
 
 Flag::~Flag(){}
-void Flag::Update(){}
+void Flag::Update()
+{
+	if (!isKangarooFlag) return;
+	Vec2 vPos = GetPos();
+
+	vPos.x += fDT * -200;
+
+	SetPos(vPos);
+}
 
 void Flag::Render(HDC _dc)
 {

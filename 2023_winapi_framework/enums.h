@@ -38,6 +38,7 @@ enum class OBJECT_GROUP
 	ROCK,
 	PENGUIN,
 	CAPYBARA,
+	KANGAROO,
 	END = 30
 };
 

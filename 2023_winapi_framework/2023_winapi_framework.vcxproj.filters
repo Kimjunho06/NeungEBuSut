@@ -107,6 +107,9 @@
     <Filter Include="Engine\04. Object\Object_Stage_7">
       <UniqueIdentifier>{c59a30b1-362c-45ce-8104-cd9bdd612c7f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\Object_Stage_8">
+      <UniqueIdentifier>{da2e251a-c804-4413-b9c7-830f4ed5c967}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -286,6 +289,8 @@
     <ClInclude Include="Toucan.h">
       <Filter>Engine\04. Object\Object_Stage_7</Filter>
     </ClInclude>
+    <ClInclude Include="Kangaroo.h" />
+    <ClInclude Include="Ground.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -460,5 +465,7 @@
     <ClCompile Include="Toucan.cpp">
       <Filter>Engine\04. Object\Object_Stage_7</Filter>
     </ClCompile>
+    <ClCompile Include="Kangaroo.cpp" />
+    <ClCompile Include="Ground.cpp" />
   </ItemGroup>
 </Project>

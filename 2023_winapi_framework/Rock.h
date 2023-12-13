@@ -10,7 +10,10 @@ public:
 public:
     void Update() override;
     void Render(HDC _dc) override;
+public:
+    bool isKangarooRock;
 private:
     Texture* texture;
+    int speed;
 };
 
