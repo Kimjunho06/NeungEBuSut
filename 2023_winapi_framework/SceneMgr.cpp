@@ -10,6 +10,7 @@
 #include "PenguinScene.h"
 #include "CapybaraScene.h"
 #include "KangarooScene.h"
+#include "ToucanScene.h"
 #include "SlothScene.h"
 
 void SceneMgr::Init()
@@ -25,12 +26,12 @@ void SceneMgr::Init()
 	RegisterScene(L"Stage_4", std::make_shared<SeaOtterScene>());
 	RegisterScene(L"Stage_5", std::make_shared<PenguinScene>());
 	RegisterScene(L"Stage_6", std::make_shared<CapybaraScene>());
-	RegisterScene(L"Stage_7", std::make_shared<ChameleonScene>());
+	RegisterScene(L"Stage_7", std::make_shared<ToucanScene>());
 	RegisterScene(L"Stage_8", std::make_shared<KangarooScene>());
 	RegisterScene(L"Stage_9", std::make_shared<SlothScene>());
 	
 	// Ã¹ ¾À ÁöÁ¤
-	LoadScene(L"Stage_8"); //
+	LoadScene(L"Stage_1"); //
 }
 
 void SceneMgr::Update()

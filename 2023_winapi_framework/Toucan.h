@@ -1,20 +1,19 @@
 #pragma once
 #include "Object.h"
+
 class Texture;
-class Wood :
+class Toucan :
     public Object
 {
 public:
-    Wood();
-    ~Wood();
-public:
+    Toucan();
+    ~Toucan();
+private:
     void Update() override;
     void Render(HDC _dc) override;
 public:
-    void EnterCollision(Collider* _pOther) override;
-public:
-    bool isSlothWood;
+    float openTime;
+    bool isOpenBeak;
 private:
     Texture* texture;
 };
-

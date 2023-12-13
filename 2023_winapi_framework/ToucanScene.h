@@ -1,8 +1,7 @@
 #pragma once
 #include "Scene.h"
-class Sloth;
-class SlothScene 
-	: public Scene
+class Toucan;
+class ToucanScene : public Scene
 {
 public:
     virtual void Init() override;
@@ -10,7 +9,8 @@ public:
     virtual void Render(HDC _dc) override;
     virtual void Release() override;
 private:
-    vector<Sloth*> slothObj;
-    int slothCnt;
+    vector<Toucan*> toucans;
+    int totalToucan;
+    int totalOpenToucan;
 };
 

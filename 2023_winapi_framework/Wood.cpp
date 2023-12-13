@@ -3,11 +3,18 @@
 #include "ResMgr.h"
 #include "Texture.h"
 #include "Core.h"
+#include "Collider.h"
 
 Wood::Wood()
 	: texture(nullptr)
+	, isSlothWood(false)
 {
 	texture = ResMgr::GetInst()->TexLoad(L"Wood", L"Texture\\Wood.bmp");
+	Vec2 vPos = GetPos();
+
+	CreateCollider();
+	GetCollider()->SetScale(Vec2(512.f * 0.7f, 256.f * 0.1f));
+	GetCollider()->SetOffSetPos(Vec2(vPos.x + 120, vPos.y - 100));
 }
 
 Wood::~Wood()
@@ -24,7 +31,6 @@ void Wood::Render(HDC _dc)
 	Vec2 vPos = GetPos();
 	Vec2 vScale = GetScale();
 	Vec2 vScaleOffset = GetScaleOffset();
-
 	int Width = texture->GetWidth();
 	int Height = texture->GetHeight();
 
@@ -37,7 +43,9 @@ void Wood::Render(HDC _dc)
 	StretchBlt(alphaDC
 		, 0
 		, 0
-		, Width, Height, texture->GetDC()
+		, Width * vScaleOffset.x
+		, Height * vScaleOffset.y
+		, texture->GetDC()
 		, 0
 		, 0
 		, Width
@@ -45,12 +53,23 @@ void Wood::Render(HDC _dc)
 		, SRCCOPY);
 
 	TransparentBlt(_dc
-		, (int)(vPos.x - vScale.x / 2) * vScaleOffset.x
-		, (int)(vPos.y - vScale.y / 2) * vScaleOffset.y
-		, Width, Height, alphaDC
-		, 0, 0, Width, Height, RGB(255, 0, 255));
+		, (int)(vPos.x - Height * vScaleOffset.x / 2.f)
+		, (int)(vPos.y - Width * vScaleOffset.y / 2.f)
+		, Width * vScaleOffset.x
+		, Height * vScaleOffset.y
+		, alphaDC
+		, 0
+		, 0
+		, Width * vScaleOffset.x
+		, Height * vScaleOffset.y
+		, RGB(255, 0, 255));
 
-
+	Component_Render(_dc);
 	DeleteDC(alphaDC);
 	DeleteObject(alphabit);
+}
+
+void Wood::EnterCollision(Collider* _pOther)
+{
+
 }
