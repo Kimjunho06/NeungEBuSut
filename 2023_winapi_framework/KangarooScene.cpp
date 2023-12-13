@@ -71,9 +71,6 @@ void KangarooScene::Update()
 	float x = resolution.x / 2;
 	float y = resolution.y / 2;
 
-	if (kangaroo->GetPos().x > flag->GetPos().x + 100)
-		kangaroo->isDie = true;
-
 	if (kangaroo->isDie) {
 		kangaroo->isfall = true;
 		kangaroo->isDie = false;

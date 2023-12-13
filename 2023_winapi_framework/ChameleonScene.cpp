@@ -44,25 +44,14 @@ void ChameleonScene::Init()
 		chameleonObj.push_back(chameleon);
 		chameleonColorObj.push_back(chameleonColor);
 	}
-
-	for (int i = 0; i < chameleonCnt; i++) {
-		if (chameleonObj[i]->GetColorIdx() == chameleonColorObj[i]->GetColorIdx()) {
-			matchCnt++;
-		}
-	}
-	if (matchCnt == chameleonObj.size()) {
-		chameleonObj[chameleonObj.size() - 1]->SetColorIdx(chameleonObj[chameleonObj.size() - 1]->GetColorIdx() + 1);
-	}
-
 	Wood* wood = new Wood;
 	int yOffset = 20;
-	
-	int wx = resolution.x / 2;
-	int wy = resolution.y / 2;
-
-	wood->SetPos(Vec2(wx / 2, wy + 250));
-	wood->SetScale(Vec2(512.f, 512.f));
-	wood->SetScaleOffset(Vec2(1, 1)); 
+	Vec2 vPos = Vec2({ resolution.x / 2, resolution.y / 2 + yOffset *2 + 100 });
+	Vec2 vScale = Vec2({ 448, 212 });
+	Vec2 vScaleOffset = Vec2(1.f, 1.f);
+	wood->SetPos(vPos); // 2048 512
+	wood->SetScale(vScale);
+	wood->SetScaleOffset(vScaleOffset);
 	AddObject(wood, OBJECT_GROUP::MAP);
 
 	matchCnt = 0;

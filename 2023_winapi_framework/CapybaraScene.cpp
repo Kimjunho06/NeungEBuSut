@@ -60,7 +60,7 @@ void CapybaraScene::Update()
 	}
 
 
-	SceneMgr::GetInst()->LoadScene(L"Stage_7");
+	SceneMgr::GetInst()->LoadScene(L"Stage_1");
 }
 
 void CapybaraScene::Render(HDC _dc)

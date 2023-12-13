@@ -16,7 +16,7 @@ Kangaroo::Kangaroo()
 	, jumpTime(0)
 {
 	Vec2 vPos = GetPos();
-	texture = ResMgr::GetInst()->TexLoad(L"Kangaroo", L"Texture\\Kangaroo.bmp"); // 2048 / 4 = 512.512
+	texture = ResMgr::GetInst()->TexLoad(L"Turtle", L"Texture\\Kangaroo.bmp"); // 2048 / 4 = 512.512
 
 	CreateAnimator();
 	GetAnimator()->CreateAnim(L"Kangaroo_move", texture, Vec2(0.f, 0.f),
