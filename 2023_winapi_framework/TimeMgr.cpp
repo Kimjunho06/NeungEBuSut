@@ -24,7 +24,7 @@ void TimeMgr::Update()
 {
 	QueryPerformanceCounter(&m_llCurCount);
 
-	// Delta Time: 한 프레임에 걸린 시간.
+	// Delta Time: 한 프레임에 걸린
 	m_dT = (float)(m_llCurCount.QuadPart - m_llPrevCount.QuadPart) / (float)m_llFrequency.QuadPart;
 
 	// FPS: Frame Per Second
@@ -40,7 +40,7 @@ void TimeMgr::Update()
 		static wchar_t titlebuf[50] = {};		
 		swprintf_s(titlebuf, L"FPS: %d, DT: %f", m_fps, m_dT);
 		//wsprintf();
-		//SetWindowText(Core::GetInst()->GetHwnd(), titlebuf);
+		SetWindowText(Core::GetInst()->GetHwnd(), titlebuf);
 	}
 
 
