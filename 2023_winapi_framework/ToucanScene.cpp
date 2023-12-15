@@ -3,11 +3,23 @@
 #include "Core.h"
 #include "Toucan.h"
 #include "Wood.h"
+#include "StageBackground.h"
 #include "SceneMgr.h"
 
 void ToucanScene::Init()
 {
 	POINT resolution = Core::GetInst()->GetResolution();
+
+	StageBackground* stageBackground = new StageBackground;
+
+	Vec2 vPos = Vec2(Core::GetInst()->GetResolution());
+	Vec2 vScale = Vec2(450, 620);
+
+	stageBackground->SetPos(vPos);
+	stageBackground->SetScale(vScale);
+	stageBackground->SetScaleOffset(Vec2(1, 1));
+
+	AddObject(stageBackground, OBJECT_GROUP::TOUCAN);
 
 	for (int i = 0; i < 3; i++)
 	{
@@ -67,9 +79,9 @@ void ToucanScene::Update()
 
 void ToucanScene::Render(HDC _dc)
 {
-	Vec2 vPos = Vec2(Core::GetInst()->GetResolution());
-	Vec2 vScale = Vec2(450, 620);
-	RECT_RENDER(vPos.x / 2, vPos.y / 2 + 20, vScale.x, vScale.y, _dc);
+	//Vec2 vPos = Vec2(Core::GetInst()->GetResolution());
+	//Vec2 vScale = Vec2(450, 620);
+	//RECT_RENDER(vPos.x / 2, vPos.y / 2 + 20, vScale.x, vScale.y, _dc);
 	Scene::Render(_dc);
 }
 
