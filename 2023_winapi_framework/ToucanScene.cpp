@@ -103,8 +103,8 @@ void ToucanScene::Render(HDC _dc)
 
 	SetBkMode(_dc, 1);
 
-	TextOut(_dc, vPos.x / 2 - 200, vPos.y / 2 - 242, StageNumberText.c_str(), StageNumberText.length());
-	TextOut(_dc, vPos.x / 2 - 175, vPos.y / 2 - 135, StageMissionText.c_str(), StageMissionText.length());
+	TextOut(_dc, vPos.x / 2 - 188, vPos.y / 2 - 236, StageNumberText.c_str(), StageNumberText.length());
+	TextOut(_dc, vPos.x / 2 - 142, vPos.y / 2 - 132, StageMissionText.c_str(), StageMissionText.length());
 
 }
 

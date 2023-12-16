@@ -90,13 +90,13 @@ void SlothScene::Render(HDC _dc)
 	
 	Vec2 vPos = Vec2(Core::GetInst()->GetResolution());
 
-	wstring StageNumberText = L"STAGE 9";
-	wstring StageMissionText = L"드래그 해 나무에 매달아주세요";
+	wstring StageNumberText = L"STAGE 9"; // 스테이지 번호 텍스트
+	wstring StageMissionText = L"드래그 해 나무에 매달아주세요"; // 스테이지 미션 텍스트
 
-	SetBkMode(_dc, 1);
+	SetBkMode(_dc, 1); // 텍스트 배경 투명화
 
-	TextOut(_dc, vPos.x / 2 - 200, vPos.y / 2 - 242, StageNumberText.c_str(), StageNumberText.length());
-	TextOut(_dc, vPos.x / 2 - 175, vPos.y / 2 - 135, StageMissionText.c_str(), StageMissionText.length());
+	TextOut(_dc, vPos.x / 2 - 188, vPos.y / 2 - 236, StageNumberText.c_str(), StageNumberText.length()); // 스테이지 번호 텍스트 출력
+	TextOut(_dc, vPos.x / 2 - 178, vPos.y / 2 - 132, StageMissionText.c_str(), StageMissionText.length()); // 스테이지 미션 텍스트 출력
 
 }
 
