@@ -13,6 +13,7 @@
 #include "ToucanScene.h"
 #include "SlothScene.h"
 #include "MainScene.h"
+#include "EndScene.h"
 
 void SceneMgr::Init()
 {
@@ -31,9 +32,10 @@ void SceneMgr::Init()
 	RegisterScene(L"Stage_7", std::make_shared<ToucanScene>());
 	RegisterScene(L"Stage_8", std::make_shared<KangarooScene>());
 	RegisterScene(L"Stage_9", std::make_shared<SlothScene>());
+	RegisterScene(L"EndScene", std::make_shared<EndScene>());
 	
 	// Ã¹ ¾À ÁöÁ¤
-	LoadScene(L"MainScene"); //
+	LoadScene(L"EndScene"); //
 }
 
 void SceneMgr::Update()

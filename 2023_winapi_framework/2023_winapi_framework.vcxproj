@@ -185,6 +185,8 @@
     <ClInclude Include="Crocodile.h" />
     <ClInclude Include="CrocodileScene.h" />
     <ClInclude Include="define.h" />
+    <ClInclude Include="EndBackground.h" />
+    <ClInclude Include="EndScene.h" />
     <ClInclude Include="EndTimeImage.h" />
     <ClInclude Include="enums.h" />
     <ClInclude Include="EventMgr.h" />
@@ -199,6 +201,7 @@
     <ClInclude Include="KangarooScene.h" />
     <ClInclude Include="KeyMgr.h" />
     <ClInclude Include="MainBackground.h" />
+    <ClInclude Include="MainButton.h" />
     <ClInclude Include="MainScene.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Object.h" />
@@ -210,6 +213,7 @@
     <ClInclude Include="Res.h" />
     <ClInclude Include="ResMgr.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="RestartButton.h" />
     <ClInclude Include="Rock.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneMgr.h" />
@@ -254,6 +258,8 @@
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="Crocodile.cpp" />
     <ClCompile Include="CrocodileScene.cpp" />
+    <ClCompile Include="EndBackground.cpp" />
+    <ClCompile Include="EndScene.cpp" />
     <ClCompile Include="EndTimeImage.cpp" />
     <ClCompile Include="EventMgr.cpp" />
     <ClCompile Include="ExitButton.cpp" />
@@ -267,6 +273,7 @@
     <ClCompile Include="KeyMgr.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainBackground.cpp" />
+    <ClCompile Include="MainButton.cpp" />
     <ClCompile Include="MainScene.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -276,6 +283,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Res.cpp" />
     <ClCompile Include="ResMgr.cpp" />
+    <ClCompile Include="RestartButton.cpp" />
     <ClCompile Include="Rock.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneMgr.cpp" />
