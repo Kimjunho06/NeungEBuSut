@@ -112,6 +112,11 @@ void Core::Render()
 	TextOut(m_hbackDC, 50, 30, time.c_str(), time.size());
 	TextOut(m_hbackDC, 150, 30, endtime.c_str(), endtime.size());
 
+	HFONT hFont = CreateFont(38, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_OUTLINE_PRECIS,
+		CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, DEFAULT_PITCH | FF_DONTCARE, L"둘기마요_고딕");
+
+	SelectObject(m_hbackDC, hFont);
+
 	SceneMgr::GetInst()->Render(m_hbackDC);
 	/*Vec2 vPos = m_obj.GetPos();
 	Vec2 vScale = m_obj.GetScale();

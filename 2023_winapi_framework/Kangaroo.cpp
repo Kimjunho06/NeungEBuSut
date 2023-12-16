@@ -42,7 +42,7 @@ void Kangaroo::Update()
 	}
 
 	if (isJump) {
-		vPos.y -= 6;
+		vPos.y -= 3.5f;
 		jumpTime += fDT;
 		if (jumpTime > 0.5f) {
 			isJump = false;
@@ -51,7 +51,7 @@ void Kangaroo::Update()
 	}
 
 	if (isfall) {
-		vPos.y += 4;
+		vPos.y += 6.f;
 	}
 	SetPos(vPos);
 }
@@ -81,7 +81,7 @@ void Kangaroo::EnterCollision(Collider* _pOther)
 	Vec2 vPos = GetPos();
 	Vec2 vScale = GetScale();
 
-	vPos.y = (vColPos.y - vColScale.y / 2) - 12;
+	vPos.y = (vColPos.y - vColScale.y / 2) - 16;
 
 	SetPos(vPos);
 

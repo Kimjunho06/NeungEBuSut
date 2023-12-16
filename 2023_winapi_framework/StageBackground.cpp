@@ -1,41 +1,23 @@
 #include "pch.h"
-#include "Rock.h"
+#include "StageBackground.h"
 #include "ResMgr.h"
 #include "Texture.h"
 #include "Core.h"
-#include "TimeMgr.h"
-#include "Collider.h"
-#include "EventMgr.h"
 
-Rock::Rock()
-	: texture(nullptr)
-	, isKangarooRock(false)
-	, speed(600)
+StageBackground::StageBackground()
 {
-	Vec2 vPos = GetPos();
-	texture = ResMgr::GetInst()->TexLoad(L"Rock", L"Texture\\Rock.bmp");
-
-	CreateCollider();
-	GetCollider()->SetScale(Vec2(512.f * 0.1f, 256.f * 0.3f));
-	GetCollider()->SetOffSetPos(Vec2(vPos.x, vPos.y));
+	texture = ResMgr::GetInst()->TexLoad(L"Background", L"Texture\\Background.bmp");
 }
 
-Rock::~Rock()
+StageBackground::~StageBackground()
 {
-
 }
 
-void Rock::Update()
+void StageBackground::Update()
 {
-	if (!isKangarooRock) return;
-	Vec2 vPos = GetPos();
-
-	vPos.x += fDT * -speed;
-
-	SetPos(vPos);
 }
 
-void Rock::Render(HDC _dc)
+void StageBackground::Render(HDC _dc)
 {
 	Vec2 vPos = GetPos();
 	Vec2 vScale = GetScale();

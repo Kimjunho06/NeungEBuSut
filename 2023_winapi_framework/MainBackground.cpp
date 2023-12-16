@@ -1,41 +1,32 @@
 #include "pch.h"
-#include "Rock.h"
+#include "MainBackground.h"
 #include "ResMgr.h"
+#include "KeyMgr.h"
+#include "SceneMgr.h"
 #include "Texture.h"
 #include "Core.h"
-#include "TimeMgr.h"
-#include "Collider.h"
-#include "EventMgr.h"
 
-Rock::Rock()
-	: texture(nullptr)
-	, isKangarooRock(false)
-	, speed(600)
+MainBackground::MainBackground() : texture(nullptr)
 {
-	Vec2 vPos = GetPos();
-	texture = ResMgr::GetInst()->TexLoad(L"Rock", L"Texture\\Rock.bmp");
-
-	CreateCollider();
-	GetCollider()->SetScale(Vec2(512.f * 0.1f, 256.f * 0.3f));
-	GetCollider()->SetOffSetPos(Vec2(vPos.x, vPos.y));
+	texture = ResMgr::GetInst()->TexLoad(L"StartSceneBackground", L"Texture\\StartSceneBackground.bmp");
 }
 
-Rock::~Rock()
+MainBackground::~MainBackground()
 {
-
 }
 
-void Rock::Update()
+void MainBackground::Update()
 {
-	if (!isKangarooRock) return;
-	Vec2 vPos = GetPos();
-
-	vPos.x += fDT * -speed;
-
-	SetPos(vPos);
+    if (IsClickAble(this)) // 클릭 됐는가
+    {
+        if (KEY_DOWN(KEY_TYPE::LBUTTON)) // 좌측 마우스 버튼으로 클릭했는가
+        {
+            SceneMgr::GetInst()->LoadScene(L"Stage_1");
+        }
+    }
 }
 
-void Rock::Render(HDC _dc)
+void MainBackground::Render(HDC _dc)
 {
 	Vec2 vPos = GetPos();
 	Vec2 vScale = GetScale();

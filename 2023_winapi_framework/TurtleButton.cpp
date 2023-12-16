@@ -10,7 +10,7 @@ TurtleButton::TurtleButton()
 	: texture(nullptr)
 	, speed(1)
 {
-	texture = ResMgr::GetInst()->TexLoad(L"TurtleButton", L"Texture\\jiwoo.bmp"); 
+	texture = ResMgr::GetInst()->TexLoad(L"TurtleButton", L"Texture\\TurtleButton.bmp"); 
 }
 
 TurtleButton::~TurtleButton()

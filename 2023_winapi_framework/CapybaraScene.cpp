@@ -2,10 +2,12 @@
 #include "CapybaraScene.h"
 #include "Core.h"
 #include "Capybara.h"
+#include "StageBackground.h"
 #include "CollisionMgr.h"
 #include "Collider.h"
 #include "KeyMgr.h"
 #include "SceneMgr.h"
+#include "StagePanel.h"
 
 void CapybaraScene::Init()
 {
@@ -16,6 +18,31 @@ void CapybaraScene::Init()
 
 	srand((unsigned int)time(NULL));
 	POINT resolution = Core::GetInst()->GetResolution();
+
+	StageBackground* stageBackground = new StageBackground;
+
+	float sx = resolution.x / 1.33f;
+	float sy = resolution.y / 3.f;
+
+	Vec2 vPos = Vec2(sx, sy);
+	Vec2 vScale = Vec2(480, 720);
+
+	stageBackground->SetPos(vPos);
+	stageBackground->SetScale(vScale);
+	stageBackground->SetScaleOffset(Vec2(1, 1));
+
+	AddObject(stageBackground, OBJECT_GROUP::STAGEBACKGROUND);
+
+	StagePanel* stagePanel = new StagePanel;
+
+	float px = resolution.x / 1.5f;
+	float py = resolution.y / 2.25f;
+
+	stagePanel->SetPos(Vec2(px, py));
+	stagePanel->SetScale(Vec2(448, 608));
+	stagePanel->SetScaleOffset(Vec2(1, 1));
+
+	AddObject(stagePanel, OBJECT_GROUP::STAGEPANEL);
 
 	Capybara* stage = new Capybara;
 
@@ -65,10 +92,17 @@ void CapybaraScene::Update()
 
 void CapybaraScene::Render(HDC _dc)
 {
-	Vec2 vPos = Vec2(Core::GetInst()->GetResolution());
-	Vec2 vScale = Vec2(450, 620);
-	RECT_RENDER(vPos.x / 2, vPos.y / 2 + 20, vScale.x, vScale.y, _dc);
 	Scene::Render(_dc);
+	
+	Vec2 vPos = Vec2(Core::GetInst()->GetResolution());
+
+	wstring StageNumberText = L"STAGE 6";
+	wstring StageMissionText = L"카피바라를 위로 쌓아주세요";
+	
+	SetBkMode(_dc, 1);
+
+	TextOut(_dc, vPos.x / 2 - 188, vPos.y / 2 - 236, StageNumberText.c_str(), StageNumberText.length());
+	TextOut(_dc, vPos.x / 2 - 156, vPos.y / 2 - 132, StageMissionText.c_str(), StageMissionText.length());
 }
 
 void CapybaraScene::Release()

@@ -25,7 +25,7 @@ Toucan::~Toucan()
 
 void Toucan::Update()
 {
-    openTime += fDT;
+    openTime += fDT; // 현재 얼마나 입을 벌리고 있었는지를 저장
 
     if (IsClickAble(this)) // 클릭 됐는가
     {
@@ -37,8 +37,9 @@ void Toucan::Update()
         }
     }
 
-    if (openTime >= 1.f)
+    if (openTime >= 1.f) // 1초 이상 입을 벌리고 있었다면
     {
+        // 입을 닫아준다
         GetAnimator()->PlayAnim(L"Toucan_CloseBeak", false);
         isOpenBeak = false;
     }

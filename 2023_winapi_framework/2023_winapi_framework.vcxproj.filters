@@ -110,6 +110,12 @@
     <Filter Include="Engine\04. Object\Object_Stage_8">
       <UniqueIdentifier>{da2e251a-c804-4413-b9c7-830f4ed5c967}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\Object_Main">
+      <UniqueIdentifier>{5793e062-14d0-4c0f-b8dd-e93c2c49b595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\Object_UserInterface">
+      <UniqueIdentifier>{570997e9-5e82-4b47-8a32-9edf7143520d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -291,6 +297,19 @@
     </ClInclude>
     <ClInclude Include="Kangaroo.h" />
     <ClInclude Include="Ground.h" />
+    <ClInclude Include="Sloth.h" />
+    <ClInclude Include="MainScene.h">
+      <Filter>Engine\05. Scene\InGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="MainBackground.h">
+      <Filter>Engine\04. Object\Object_Main</Filter>
+    </ClInclude>
+    <ClInclude Include="StageBackground.h">
+      <Filter>Engine\04. Object\Object_UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="StagePanel.h">
+      <Filter>Engine\04. Object\Object_UserInterface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -467,5 +486,18 @@
     </ClCompile>
     <ClCompile Include="Kangaroo.cpp" />
     <ClCompile Include="Ground.cpp" />
+    <ClCompile Include="Sloth.cpp" />
+    <ClCompile Include="MainScene.cpp">
+      <Filter>Engine\05. Scene\InGameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="MainBackground.cpp">
+      <Filter>Engine\04. Object\Object_Main</Filter>
+    </ClCompile>
+    <ClCompile Include="StageBackground.cpp">
+      <Filter>Engine\04. Object\Object_UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="StagePanel.cpp">
+      <Filter>Engine\04. Object\Object_UserInterface</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

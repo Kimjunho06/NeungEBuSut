@@ -6,11 +6,38 @@
 #include "CollisionMgr.h"
 #include "Flag.h"	
 #include "TurtleButton.h"	
+#include "StageBackground.h"
+#include "StagePanel.h"
 #include "Button.h"	
 
 void TurtleScene::Init()
 {
 	POINT resolution = Core::GetInst()->GetResolution();
+
+	StageBackground* stageBackground = new StageBackground;
+
+	float sx = resolution.x / 1.33f;
+	float sy = resolution.y / 3.f;
+
+	Vec2 vPos = Vec2(sx, sy);
+	Vec2 vScale = Vec2(480, 720);
+
+	stageBackground->SetPos(vPos);
+	stageBackground->SetScale(vScale);
+	stageBackground->SetScaleOffset(Vec2(1, 1));
+
+	AddObject(stageBackground, OBJECT_GROUP::STAGEBACKGROUND);
+
+	StagePanel* stagePanel = new StagePanel;
+
+	float px = resolution.x / 1.5f;
+	float py = resolution.y / 2.25f;
+
+	stagePanel->SetPos(Vec2(px, py));
+	stagePanel->SetScale(Vec2(448, 608));
+	stagePanel->SetScaleOffset(Vec2(1, 1));
+
+	AddObject(stagePanel, OBJECT_GROUP::STAGEPANEL);
 
 	Object* turtle = new Turtle;
 	Object* flag = new Flag;
@@ -20,24 +47,23 @@ void TurtleScene::Init()
 	float x = 256 * 0.3f + 10;
 	float y = resolution.y / 2;
 
-	turtle->SetPos(Vec2({ x, y + yOffset }));
+	turtle->SetPos(Vec2({ x + 25, y + yOffset }));
 	turtle->SetScale(Vec2(512.f * 0.3f, 512.f * 0.3f));
 	turtle->SetScaleOffset({ 0.3f, 0.3f });
 
-	flag->SetPos(Vec2(400.f, y + yOffset));
+	flag->SetPos(Vec2(375.f, y + yOffset));
 	flag->SetScale(Vec2(512.f * 0.3f, 512.f * 0.3f));
 	flag->SetScaleOffset({0.3f, 0.3f});
 
-	clickBtn->SetPos(Vec2(resolution.x / 2.f, y + 270));
-	clickBtn->SetScale(Vec2(512.f * 0.3f, 512.f * 0.3f));
-	clickBtn->SetScaleOffset(Vec2(0.3f, 0.3f));
+	clickBtn->SetPos(Vec2(resolution.x / 4.f, resolution.y / 2.f + 370));
+	clickBtn->SetScale(Vec2(512.f, 512.f));
+	clickBtn->SetScaleOffset(Vec2(1.f, 1.f));
 	
 	turtle->SetName(L"Turtle");
 	flag->SetName(L"Flag");
 
 	AddObject(turtle, OBJECT_GROUP::TURTLE);
 	AddObject(flag, OBJECT_GROUP::FLAG);
-	
 	AddUI(clickBtn, UI_GROUP::BUTTON);
 
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::TURTLE, OBJECT_GROUP::FLAG);
@@ -63,10 +89,18 @@ void TurtleScene::Update()
 
 void TurtleScene::Render(HDC _dc)
 {
-	Vec2 vPos = Vec2(Core::GetInst()->GetResolution());
-	Vec2 vScale = Vec2(450, 620);
-	RECT_RENDER(vPos.x / 2, vPos.y / 2 + 20, vScale.x, vScale.y, _dc);
 	Scene::Render(_dc);
+
+	Vec2 vPos = Vec2(Core::GetInst()->GetResolution());
+
+	wstring StageNumberText = L"STAGE 2";
+	wstring StageMissionText = L"버튼을 눌러 이동시켜주세요";
+
+	SetBkMode(_dc, 1);
+
+	TextOut(_dc, vPos.x / 2 - 188, vPos.y / 2 - 236, StageNumberText.c_str(), StageNumberText.length());
+	TextOut(_dc, vPos.x / 2 - 154, vPos.y / 2 - 132, StageMissionText.c_str(), StageMissionText.length());
+
 }
 
 void TurtleScene::Release()

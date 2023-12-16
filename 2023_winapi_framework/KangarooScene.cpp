@@ -6,10 +6,35 @@
 #include "Rock.h"
 #include "Ground.h"
 #include "Flag.h"
+#include "StageBackground.h"
+#include "StagePanel.h"
 
 void KangarooScene::Init()
 {
 	POINT resolution = Core::GetInst()->GetResolution();
+
+	StageBackground* stageBackground = new StageBackground;
+
+	float sx = resolution.x / 1.33f;
+	float sy = resolution.y / 3.f;
+
+	Vec2 vPos = Vec2(sx, sy);
+	Vec2 vScale = Vec2(480, 720);
+
+	stageBackground->SetPos(vPos);
+	stageBackground->SetScale(vScale);
+	stageBackground->SetScaleOffset(Vec2(1, 1));
+
+	StagePanel* stagePanel = new StagePanel;
+
+	float px = resolution.x / 1.5f;
+	float py = resolution.y / 2.25f;
+
+	stagePanel->SetPos(Vec2(px, py));
+	stagePanel->SetScale(Vec2(448, 608));
+	stagePanel->SetScaleOffset(Vec2(1, 1));
+
+	AddObject(stagePanel, OBJECT_GROUP::STAGEPANEL);
 
 	rockObj.clear();
 
@@ -30,12 +55,13 @@ void KangarooScene::Init()
 	kangaroo->SetScaleOffset({ 0.3f, 0.3f });
 	kangaroo->SetName(L"Kangaroo");
 
-	flag->SetPos(Vec2({ x + 3000, y + 180}));
+	flag->SetPos(Vec2({ x + 1500, y + 180}));
 	flag->SetScale(Vec2(512.f * 0.3f, 512.f * 0.3f));
 	flag->SetScaleOffset({ 0.3f, 0.3f });
 	flag->SetName(L"Flag");
 	flag->isKangarooFlag = true;
 
+	AddObject(stageBackground, OBJECT_GROUP::STAGEBACKGROUND);
 	AddObject(kangaroo, OBJECT_GROUP::KANGAROO);
 	AddObject(ground, OBJECT_GROUP::MAP);
 	AddObject(flag, OBJECT_GROUP::FLAG);
@@ -43,7 +69,7 @@ void KangarooScene::Init()
 	for (int i = 0; i < 5; i++) {
 		Rock* rock = new Rock;
 
-		rock->SetPos(Vec2({ x + ((i + 1) * 500), y + 220}));
+		rock->SetPos(Vec2({ x + ((i + 1) * 1100), y + 220}));
 		rock->SetScale(Vec2(512.f * 0.2f, 512.f * 0.2f));
 		rock->SetScaleOffset({ 0.2f, 0.2f });
 		rock->SetName(L"Rock");
@@ -79,19 +105,27 @@ void KangarooScene::Update()
 		kangaroo->isDie = false;
 
 		for (int i = 0; i < 5; i++) {
-			rockObj[i]->SetPos(Vec2({ x + ((i + 1) * 500), y + 220 }));
+			rockObj[i]->SetPos(Vec2({ x + ((i + 1) * (500+200)) , y + 220 }));
 		}
-		flag->SetPos(Vec2({ x + 3000, y + 180 }));
+		flag->SetPos(Vec2({ x + 1500, y + 180 }));
 	}
 	Scene::Update();
 }
 
 void KangarooScene::Render(HDC _dc)
 {
-	Vec2 vPos = Vec2(Core::GetInst()->GetResolution());
-	Vec2 vScale = Vec2(450, 620);
-	RECT_RENDER(vPos.x / 2, vPos.y / 2 + 20, vScale.x, vScale.y, _dc);
 	Scene::Render(_dc);
+	
+	Vec2 vPos = Vec2(Core::GetInst()->GetResolution());
+
+	wstring StageNumberText = L"STAGE 8";
+	wstring StageMissionText = L"SPACE로 점프하세요";
+
+	SetBkMode(_dc, 1);
+
+	TextOut(_dc, vPos.x / 2 - 200, vPos.y / 2 - 242, StageNumberText.c_str(), StageNumberText.length());
+	TextOut(_dc, vPos.x / 2 - 175, vPos.y / 2 - 135, StageMissionText.c_str(), StageMissionText.length());
+
 }
 
 void KangarooScene::Release()
