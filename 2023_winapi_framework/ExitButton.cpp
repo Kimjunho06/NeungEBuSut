@@ -20,7 +20,8 @@ ExitButton::~ExitButton()
 
 void ExitButton::Update()
 {
-	Core::GetInst()->isExitOnButton = false;
+	if (Core::GetInst()->isExitOnButton)
+		Core::GetInst()->isExitOnButton = false;
 	if (IsClickAble(this)) {
 		Core::GetInst()->isExitOnButton = true;
 		if (KEY_DOWN(KEY_TYPE::LBUTTON))
