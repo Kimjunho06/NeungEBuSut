@@ -6,6 +6,7 @@
 #include "KeyMgr.h"
 #include "Scene.h"
 #include "SceneMgr.h"
+#include "EventMgr.h"
 
 ExitButton::ExitButton()
 {
@@ -116,7 +117,7 @@ void ExitButton::Render(HDC _dc)
 void ExitButton::OnClickEvent()
 {
 	if (Core::GetInst()->isGameStart) {
-		SceneMgr::GetInst()->LoadScene(L"MainScene");
+		EventMgr::GetInst()->ChangeScene(L"MainScene");
 		Core::GetInst()->isGameStart = false;
 		Core::GetInst()->gameTime = 0;
 	}

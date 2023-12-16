@@ -86,7 +86,7 @@ void TurtleScene::Init()
 	AddObject(turtle, OBJECT_GROUP::TURTLE);
 	AddObject(flag, OBJECT_GROUP::FLAG);
 	AddUI(clickBtn, UI_GROUP::BUTTON);
-	AddUI(exitButton, UI_GROUP::BUTTON);
+	AddUI(exitButton, UI_GROUP::IMAGE);
 	AddUI(gametimeImage, UI_GROUP::IMAGE);
 	AddUI(endtimeImage, UI_GROUP::IMAGE);
 
