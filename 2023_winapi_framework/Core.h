@@ -48,8 +48,12 @@ private:
 	void Update();
 	void Render();
 	void CreateGDI();
+	wstring CalcTime(int time);
 public:
 	bool isDragging;
+	bool isGameStart;
+	float gameTime;
+	float endTime;
 private:
 	HWND	m_hWnd;
 	HDC		m_hDC; // ∏ﬁ¿Œ DC

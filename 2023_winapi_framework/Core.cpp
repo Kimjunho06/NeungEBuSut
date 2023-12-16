@@ -15,6 +15,10 @@ bool Core::Init(HWND _hWnd, POINT _ptResolution)
 	m_hbackDC = 0;
 	m_hbackbit = 0;
 
+	isDragging = false;
+	isGameStart = true;
+	gameTime = 0;
+	endTime = 11;
 
 	// 더블버퍼링
 	m_hDC = GetDC(m_hWnd);	
@@ -64,6 +68,14 @@ void Core::Update()
 	KeyMgr::GetInst()->Update();
 	SceneMgr::GetInst()->Update();
 	CollisionMgr::GetInst()->Update();
+
+	if (isGameStart)
+		gameTime += fDT;
+	if (gameTime >= endTime) {
+		SceneMgr::GetInst()->LoadScene(L"Stage_1"); 
+		isGameStart = false;
+		gameTime = 0;
+	}
 //	Vec2 vPos = m_obj.GetPos();
 //
 ////	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
@@ -88,6 +100,17 @@ void Core::Render()
 	// 칠한다.
 	//Rectangle(m_hbackDC, -1,-1,m_ptResolution.x +1,m_ptResolution.y + 1);
 	PatBlt(m_hbackDC, 0, 0, m_ptResolution.x, m_ptResolution.y, WHITENESS);
+	
+	HFONT hFont = CreateFont(25, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_OUTLINE_PRECIS,
+		CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, DEFAULT_PITCH | FF_DONTCARE, L"둘기마요_고딕");
+	SelectObject(m_hbackDC, hFont);
+
+	SetBkMode(m_hbackDC, 1);
+	wstring time = CalcTime(gameTime);
+	wstring endtime = CalcTime(endTime);
+
+	TextOut(m_hbackDC, 50, 30, time.c_str(), time.size());
+	TextOut(m_hbackDC, 150, 30, endtime.c_str(), endtime.size());
 
 	SceneMgr::GetInst()->Render(m_hbackDC);
 	/*Vec2 vPos = m_obj.GetPos();
@@ -129,6 +152,20 @@ void Core::CreateGDI()
 	m_arrPen[(UINT)PEN_TYPE::BLUE] = CreatePen(PS_SOLID, 1, RGB(0, 0, 255));
 	m_arrPen[(UINT)PEN_TYPE::YELLOW] = CreatePen(PS_SOLID, 1, RGB(255, 255, 0));
 	m_arrPen[(UINT)PEN_TYPE::HOLLOW] = CreatePen(PS_NULL, 0, RGB(0, 0, 0));
+}
+
+wstring Core::CalcTime(int time)
+{
+	wstring wtime;
+	int Minutes = time / 60;
+	int Seconds = time % 60;
+
+	wtime += (Minutes < 10) ? L"0" : L"";
+	wtime += std::to_wstring(Minutes) + L":";
+	wtime += (Seconds < 10) ? L"0" : L"";
+	wtime += std::to_wstring(Seconds);
+
+	return wtime;
 }
 
 void Core::Release()
