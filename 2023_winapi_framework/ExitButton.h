@@ -12,6 +12,6 @@ public:
     void Render(HDC _dc) override;
     void OnClickEvent() override;
 private:
-    Texture* texture;
+    Texture* texture[2];
 };
 
