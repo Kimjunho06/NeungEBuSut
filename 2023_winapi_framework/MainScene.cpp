@@ -23,7 +23,7 @@ void MainScene::Init()
 	mainBackground->SetScale(Vec2(480, 720));
 	mainBackground->SetScaleOffset(Vec2(1, 1));
 
-	AddUI(exitButton, UI_GROUP::BUTTON);
+	AddObject(exitButton, OBJECT_GROUP::UI);
 
 	AddObject(mainBackground, OBJECT_GROUP::MAINBACKGROUND);
 }

@@ -7,6 +7,10 @@
 #include "ResMgr.h"
 #include "CollisionMgr.h"
 #include "EventMgr.h"
+#include "Scene.h"
+#include "SceneMgr.h"
+#include "ExitButton.h"
+
 bool Core::Init(HWND _hWnd, POINT _ptResolution)
 {
 	// === 변수 초기화 === 
@@ -18,7 +22,7 @@ bool Core::Init(HWND _hWnd, POINT _ptResolution)
 	isDragging = false;
 	isGameStart = false;
 	gameTime = 0;
-	endTime = 60;
+	endTime = 59;
 
 	AddFontResource(L"Res\\Texture\\Dovemayo_gothic.ttf");
 

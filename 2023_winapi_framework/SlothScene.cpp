@@ -92,9 +92,9 @@ void SlothScene::Init()
 		slothObj.push_back(sloth);
 	}
 
-	AddUI(exitButton, UI_GROUP::BUTTON);
-	AddUI(gametimeImage, UI_GROUP::IMAGE);
-	AddUI(endtimeImage, UI_GROUP::IMAGE);
+	AddObject(exitButton, OBJECT_GROUP::UI);
+	AddObject(gametimeImage, OBJECT_GROUP::UI);
+	AddObject(endtimeImage, OBJECT_GROUP::UI);
 
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::MAP, OBJECT_GROUP::SLOTH);
 }

@@ -3,6 +3,7 @@
 #include "ResMgr.h"
 #include "KeyMgr.h"
 #include "Texture.h"
+#include "TimeMgr.h"
 #include "Core.h"
 
 Penguin::Penguin()
@@ -12,7 +13,7 @@ Penguin::Penguin()
 {
 	texture = ResMgr::GetInst()->TexLoad(L"Penguin", L"Texture\\Penguin.bmp");
 
-	speed = -((rand() % 5) + 1);
+	speed = -((rand() % 400) + 800);
 }
 
 Penguin::~Penguin()
@@ -28,9 +29,9 @@ void Penguin::Update()
 
 		if (vPos.x <= offset) {
 			vPos.x = Core::GetInst()->GetResolution().x / 2 + 180;
-			speed = -((rand() % 5) + 1);
+			speed = -((rand() % 400) + 800);
 		}
-		vPos.x += speed;
+		vPos.x += speed * fDT;
 
 		SetPos(vPos);
 	}

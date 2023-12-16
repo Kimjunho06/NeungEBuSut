@@ -44,6 +44,7 @@ enum class OBJECT_GROUP
 	KANGAROO,
 	SLOTH,
 	MAINBACKGROUND,
+	UI,
 	END = 30
 };
 
