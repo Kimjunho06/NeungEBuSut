@@ -114,15 +114,18 @@ void KangarooScene::Update()
 
 void KangarooScene::Render(HDC _dc)
 {
+	Scene::Render(_dc);
+	
 	Vec2 vPos = Vec2(Core::GetInst()->GetResolution());
 
 	wstring StageNumberText = L"STAGE 8";
 	wstring StageMissionText = L"SPACE로 점프하세요";
 
-	TextOut(_dc, vPos.x / 2, vPos.y / 2, StageNumberText.c_str(), StageNumberText.length());
-	TextOut(_dc, vPos.x / 2, vPos.y / 2, StageMissionText.c_str(), StageMissionText.length());
+	SetBkMode(_dc, 1);
 
-	Scene::Render(_dc);
+	TextOut(_dc, vPos.x / 2 - 200, vPos.y / 2 - 242, StageNumberText.c_str(), StageNumberText.length());
+	TextOut(_dc, vPos.x / 2 - 175, vPos.y / 2 - 135, StageMissionText.c_str(), StageMissionText.length());
+
 }
 
 void KangarooScene::Release()

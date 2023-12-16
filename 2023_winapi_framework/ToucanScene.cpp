@@ -101,8 +101,10 @@ void ToucanScene::Render(HDC _dc)
 	wstring StageNumberText = L"STAGE 7";
 	wstring StageMissionText = L"클릭해 부리를 벌려주세요";
 
-	TextOut(_dc, vPos.x / 2, vPos.y / 2, StageNumberText.c_str(), StageNumberText.length());
-	TextOut(_dc, vPos.x / 2, vPos.y / 2, StageMissionText.c_str(), StageMissionText.length());
+	SetBkMode(_dc, 1);
+
+	TextOut(_dc, vPos.x / 2 - 200, vPos.y / 2 - 242, StageNumberText.c_str(), StageNumberText.length());
+	TextOut(_dc, vPos.x / 2 - 175, vPos.y / 2 - 135, StageMissionText.c_str(), StageMissionText.length());
 
 }
 

@@ -96,8 +96,10 @@ void TurtleScene::Render(HDC _dc)
 	wstring StageNumberText = L"STAGE 2";
 	wstring StageMissionText = L"버튼을 눌러 이동시켜주세요";
 
-	TextOut(_dc, vPos.x / 2, vPos.y / 2, StageNumberText.c_str(), StageNumberText.length());
-	TextOut(_dc, vPos.x / 2, vPos.y / 2, StageMissionText.c_str(), StageMissionText.length());
+	SetBkMode(_dc, 1);
+
+	TextOut(_dc, vPos.x / 2 - 188, vPos.y / 2 - 236, StageNumberText.c_str(), StageNumberText.length());
+	TextOut(_dc, vPos.x / 2 - 154, vPos.y / 2 - 132, StageMissionText.c_str(), StageMissionText.length());
 
 }
 

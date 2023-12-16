@@ -74,9 +74,10 @@ void SeaOtterScene::Render(HDC _dc)
 	wstring StageNumberText = L"STAGE 4";
 	wstring StageMissionText = L"화면을 클릭해 조개를 깨주세요";
 
-	TextOut(_dc, vPos.x / 2, vPos.y / 2, StageNumberText.c_str(), StageNumberText.length());
-	TextOut(_dc, vPos.x / 2, vPos.y / 2, StageMissionText.c_str(), StageMissionText.length());
+	SetBkMode(_dc, 1);
 
+	TextOut(_dc, vPos.x / 2 - 188, vPos.y / 2 - 236, StageNumberText.c_str(), StageNumberText.length());
+	TextOut(_dc, vPos.x / 2 - 174, vPos.y / 2 - 132, StageMissionText.c_str(), StageMissionText.length());
 }
 
 void SeaOtterScene::Release()

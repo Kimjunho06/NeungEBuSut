@@ -98,10 +98,11 @@ void CapybaraScene::Render(HDC _dc)
 
 	wstring StageNumberText = L"STAGE 6";
 	wstring StageMissionText = L"카피바라를 위로 쌓아주세요";
+	
+	SetBkMode(_dc, 1);
 
-	TextOut(_dc, vPos.x / 2, vPos.y / 2, StageNumberText.c_str(), StageNumberText.length());
-	TextOut(_dc, vPos.x / 2, vPos.y / 2, StageMissionText.c_str(), StageMissionText.length());
-
+	TextOut(_dc, vPos.x / 2 - 188, vPos.y / 2 - 236, StageNumberText.c_str(), StageNumberText.length());
+	TextOut(_dc, vPos.x / 2 - 156, vPos.y / 2 - 132, StageMissionText.c_str(), StageMissionText.length());
 }
 
 void CapybaraScene::Release()

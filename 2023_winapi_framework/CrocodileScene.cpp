@@ -73,8 +73,10 @@ void CrocodileScene::Render(HDC _dc)
 	wstring StageNumberText = L"STAGE 3";
 	wstring StageMissionText = L"화면을 클릭해 물고기를 먹여주세요";
 
-	TextOut(_dc, vPos.x / 2, vPos.y / 2, StageNumberText.c_str(), StageNumberText.length());
-	TextOut(_dc, vPos.x / 2, vPos.y / 2, StageMissionText.c_str(), StageMissionText.length());
+	SetBkMode(_dc, 1);
+
+	TextOut(_dc, vPos.x / 2 - 188, vPos.y / 2 - 236, StageNumberText.c_str(), StageNumberText.length());
+	TextOut(_dc, vPos.x / 2 - 194, vPos.y / 2 - 132, StageMissionText.c_str(), StageMissionText.length());
 
 }
 
