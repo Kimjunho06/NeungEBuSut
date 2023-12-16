@@ -4,6 +4,8 @@
 #include <vector>
 #include <map>
 #include <string>
+#include <sstream>
+#include <iostream>
 #include <algorithm>
 #include <memory>
 #define _USE_MATH_DEFINES
