@@ -1,12 +1,12 @@
 #pragma once
 #include "Button.h"
 class Texture;
-class GameTimeImage :
+class ExitButton :
     public Button
 {
 public:
-    GameTimeImage();
-    ~GameTimeImage();
+    ExitButton();
+    ~ExitButton();
 public:
     void Update() override;
     void Render(HDC _dc) override;

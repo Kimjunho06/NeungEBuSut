@@ -8,6 +8,9 @@
 #include "KeyMgr.h"
 #include "SceneMgr.h"
 #include "StagePanel.h"
+#include "GameTimeImage.h"
+#include "EndTimeImage.h"
+#include "ExitButton.h"
 
 void CapybaraScene::Init()
 {
@@ -21,6 +24,11 @@ void CapybaraScene::Init()
 
 	StageBackground* stageBackground = new StageBackground;
 
+	ExitButton* exitButton = new ExitButton;
+	exitButton->SetPos(Vec2(440, 45));
+	exitButton->SetScale(Vec2(512.f * 0.1f, 512.f * 0.1f));
+	exitButton->SetScaleOffset(Vec2(0.1f, 0.1f));
+
 	float sx = resolution.x / 1.33f;
 	float sy = resolution.y / 3.f;
 
@@ -31,7 +39,17 @@ void CapybaraScene::Init()
 	stageBackground->SetScale(vScale);
 	stageBackground->SetScaleOffset(Vec2(1, 1));
 
-	AddObject(stageBackground, OBJECT_GROUP::STAGEBACKGROUND);
+	GameTimeImage* gametimeImage = new GameTimeImage;
+	EndTimeImage* endtimeImage = new EndTimeImage;
+
+	gametimeImage->SetPos(Vec2(50, 45));
+	gametimeImage->SetScale(Vec2(594.f * 0.08f, 598.f * 0.08f));
+	gametimeImage->SetScaleOffset(Vec2(0.08f, 0.08f));
+
+	endtimeImage->SetPos(Vec2(180, 45));
+	endtimeImage->SetScale(Vec2(594.f * 0.08f, 598.f * 0.08f));
+	endtimeImage->SetScaleOffset(Vec2(0.08f, 0.08f));
+
 
 	StagePanel* stagePanel = new StagePanel;
 
@@ -42,7 +60,6 @@ void CapybaraScene::Init()
 	stagePanel->SetScale(Vec2(448, 608));
 	stagePanel->SetScaleOffset(Vec2(1, 1));
 
-	AddObject(stagePanel, OBJECT_GROUP::STAGEPANEL);
 
 	Capybara* stage = new Capybara;
 
@@ -55,8 +72,6 @@ void CapybaraScene::Init()
 	stage->SetIsStand(true);
 	stage->GetCollider()->SetScale(Vec2(512.f * 0.05f, 256.f * 0.1f));
 	stage->GetCollider()->SetOffSetPos(Vec2(0, -10));
-
-	AddObject(stage, OBJECT_GROUP::CAPYBARA);
 	capybaraObj.push_back(stage);
 	
 	for (int i = 0; i < capybaraCnt; i++) {
@@ -72,6 +87,14 @@ void CapybaraScene::Init()
 		AddObject(capybara, OBJECT_GROUP::CAPYBARA);
 		capybaraObj.push_back(capybara);
 	}
+	AddUI(exitButton, UI_GROUP::BUTTON);
+	AddUI(gametimeImage, UI_GROUP::IMAGE);
+	AddUI(endtimeImage, UI_GROUP::IMAGE);
+
+	AddObject(stageBackground, OBJECT_GROUP::STAGEBACKGROUND);
+	AddObject(stagePanel, OBJECT_GROUP::STAGEPANEL);
+
+	AddObject(stage, OBJECT_GROUP::CAPYBARA);
 
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::CAPYBARA, OBJECT_GROUP::CAPYBARA);
 }
@@ -85,7 +108,6 @@ void CapybaraScene::Update()
 			return;
 		}
 	}
-
 
 	SceneMgr::GetInst()->LoadScene(L"Stage_7");
 }

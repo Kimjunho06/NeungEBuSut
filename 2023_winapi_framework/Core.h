@@ -52,6 +52,7 @@ private:
 public:
 	bool isDragging;
 	bool isGameStart;
+	bool isExitOnButton;
 	float gameTime;
 	float endTime;
 private:

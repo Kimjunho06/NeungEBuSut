@@ -17,10 +17,11 @@ MainBackground::~MainBackground()
 
 void MainBackground::Update()
 {
-    if (IsClickAble(this)) // 클릭 됐는가
+    if (IsClickAble(this) && !Core::GetInst()->isExitOnButton) // 클릭 됐는가
     {
         if (KEY_DOWN(KEY_TYPE::LBUTTON)) // 좌측 마우스 버튼으로 클릭했는가
         {
+			Core::GetInst()->isGameStart = true;
             SceneMgr::GetInst()->LoadScene(L"Stage_1");
         }
     }

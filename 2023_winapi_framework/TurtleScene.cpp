@@ -9,12 +9,33 @@
 #include "StageBackground.h"
 #include "StagePanel.h"
 #include "Button.h"	
+#include "GameTimeImage.h"
+#include "EndTimeImage.h"
+#include "ExitButton.h"
+
 
 void TurtleScene::Init()
 {
 	POINT resolution = Core::GetInst()->GetResolution();
 
 	StageBackground* stageBackground = new StageBackground;
+
+	ExitButton* exitButton = new ExitButton;
+	exitButton->SetPos(Vec2(440, 45));
+	exitButton->SetScale(Vec2(512.f * 0.1f, 512.f * 0.1f));
+	exitButton->SetScaleOffset(Vec2(0.1f, 0.1f));
+
+	GameTimeImage* gametimeImage = new GameTimeImage;
+	EndTimeImage* endtimeImage = new EndTimeImage;
+
+	gametimeImage->SetPos(Vec2(50, 45));
+	gametimeImage->SetScale(Vec2(594.f * 0.08f, 598.f * 0.08f));
+	gametimeImage->SetScaleOffset(Vec2(0.08f, 0.08f));
+
+	endtimeImage->SetPos(Vec2(180, 45));
+	endtimeImage->SetScale(Vec2(594.f * 0.08f, 598.f * 0.08f));
+	endtimeImage->SetScaleOffset(Vec2(0.08f, 0.08f));
+
 
 	float sx = resolution.x / 1.33f;
 	float sy = resolution.y / 3.f;
@@ -65,6 +86,9 @@ void TurtleScene::Init()
 	AddObject(turtle, OBJECT_GROUP::TURTLE);
 	AddObject(flag, OBJECT_GROUP::FLAG);
 	AddUI(clickBtn, UI_GROUP::BUTTON);
+	AddUI(exitButton, UI_GROUP::BUTTON);
+	AddUI(gametimeImage, UI_GROUP::IMAGE);
+	AddUI(endtimeImage, UI_GROUP::IMAGE);
 
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::TURTLE, OBJECT_GROUP::FLAG);
 }

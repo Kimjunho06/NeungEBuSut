@@ -16,9 +16,11 @@ bool Core::Init(HWND _hWnd, POINT _ptResolution)
 	m_hbackbit = 0;
 
 	isDragging = false;
-	isGameStart = true;
+	isGameStart = false;
 	gameTime = 0;
 	endTime = 11;
+
+	AddFontResource(L"Res\\Texture\\Dovemayo_gothic.ttf");
 
 	// 더블버퍼링
 	m_hDC = GetDC(m_hWnd);	
@@ -72,7 +74,7 @@ void Core::Update()
 	if (isGameStart)
 		gameTime += fDT;
 	if (gameTime >= endTime) {
-		SceneMgr::GetInst()->LoadScene(L"Stage_1"); 
+		SceneMgr::GetInst()->LoadScene(L"MainScene"); 
 		isGameStart = false;
 		gameTime = 0;
 	}
@@ -103,18 +105,18 @@ void Core::Render()
 	
 	HFONT hFont = CreateFont(38, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_OUTLINE_PRECIS,
 		CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, DEFAULT_PITCH | FF_DONTCARE, L"둘기마요_고딕");
-	SelectObject(m_hbackDC, hFont);
 
+	SelectObject(m_hbackDC, hFont);
 	SetBkMode(m_hbackDC, 1);
-	wstring time = CalcTime(gameTime);
-	wstring endtime = CalcTime(endTime);
-
-	TextOut(m_hbackDC, 50, 30, time.c_str(), time.size());
-	TextOut(m_hbackDC, 150, 30, endtime.c_str(), endtime.size());
-
-	SelectObject(m_hbackDC, hFont);
 
 	SceneMgr::GetInst()->Render(m_hbackDC);
+
+	wstring time = CalcTime(gameTime);
+	wstring endtime = CalcTime(endTime);
+	if (isGameStart) {
+		TextOut(m_hbackDC, 80, 30, time.c_str(), time.size());
+		TextOut(m_hbackDC, 210, 30, endtime.c_str(), endtime.size());
+	}
 	/*Vec2 vPos = m_obj.GetPos();
 	Vec2 vScale = m_obj.GetScale();
 	RECT_RENDER(vPos.x, vPos.y, vScale.x, vScale.y, m_hbackDC);*/
@@ -130,7 +132,7 @@ void Core::Render()
 		m_hbackDC, 0,0, SRCCOPY);
 	EventMgr::GetInst()->Update();
 
-
+	DeleteObject(hFont);
 	//TransparentBlt();
 	//StretchBlt();
 	// 

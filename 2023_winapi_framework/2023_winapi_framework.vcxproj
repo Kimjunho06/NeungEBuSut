@@ -185,11 +185,14 @@
     <ClInclude Include="Crocodile.h" />
     <ClInclude Include="CrocodileScene.h" />
     <ClInclude Include="define.h" />
+    <ClInclude Include="EndTimeImage.h" />
     <ClInclude Include="enums.h" />
     <ClInclude Include="EventMgr.h" />
+    <ClInclude Include="ExitButton.h" />
     <ClInclude Include="Fish.h" />
     <ClInclude Include="Flag.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="GameTimeImage.h" />
     <ClInclude Include="Game_Scene.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Kangaroo.h" />
@@ -251,9 +254,12 @@
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="Crocodile.cpp" />
     <ClCompile Include="CrocodileScene.cpp" />
+    <ClCompile Include="EndTimeImage.cpp" />
     <ClCompile Include="EventMgr.cpp" />
+    <ClCompile Include="ExitButton.cpp" />
     <ClCompile Include="Fish.cpp" />
     <ClCompile Include="Flag.cpp" />
+    <ClCompile Include="GameTimeImage.cpp" />
     <ClCompile Include="Game_Scene.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Kangaroo.cpp" />

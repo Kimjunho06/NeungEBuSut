@@ -1,24 +1,34 @@
 #include "pch.h"
-#include "GameTimeImage.h"
+#include "ExitButton.h"
 #include "Core.h"
 #include "ResMgr.h"
 #include "Texture.h"
+#include "KeyMgr.h"
+#include "Scene.h"
+#include "SceneMgr.h"
 
-GameTimeImage::GameTimeImage()
-	: texture(nullptr)
+ExitButton::ExitButton()
 {
-	texture = ResMgr::GetInst()->TexLoad(L"GameTimeImage", L"Texture\\TimerIcon.bmp");
+	texture = ResMgr::GetInst()->TexLoad(L"ExitButton", L"Texture\\ExitButton_X.bmp");
 }
 
-GameTimeImage::~GameTimeImage()
-{
-}
-
-void GameTimeImage::Update()
+ExitButton::~ExitButton()
 {
 }
 
-void GameTimeImage::Render(HDC _dc)
+void ExitButton::Update()
+{
+	Core::GetInst()->isExitOnButton = false;
+	if (IsClickAble(this)) {
+		Core::GetInst()->isExitOnButton = true;
+		if (KEY_DOWN(KEY_TYPE::LBUTTON))
+		{
+			OnClickEvent();
+		}
+	}
+}
+
+void ExitButton::Render(HDC _dc)
 {
 	Vec2 vPos = GetPos();
 	Vec2 vScale = GetScale();
@@ -60,6 +70,14 @@ void GameTimeImage::Render(HDC _dc)
 	DeleteObject(alphabit);
 }
 
-void GameTimeImage::OnClickEvent()
+void ExitButton::OnClickEvent()
 {
+	if (Core::GetInst()->isGameStart) {
+		SceneMgr::GetInst()->LoadScene(L"MainScene");
+		Core::GetInst()->isGameStart = false;
+		Core::GetInst()->gameTime = 0;
+	}
+	else {
+		PostQuitMessage(0);
+	}
 }

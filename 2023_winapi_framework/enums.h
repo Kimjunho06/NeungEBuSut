@@ -51,6 +51,7 @@ enum class UI_GROUP
 {
 	BUTTON,
 	SCOLLBAR,
+	IMAGE,
 	END = 10
 };
 
