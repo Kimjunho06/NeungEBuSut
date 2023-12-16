@@ -18,7 +18,7 @@ bool Core::Init(HWND _hWnd, POINT _ptResolution)
 	isDragging = false;
 	isGameStart = false;
 	gameTime = 0;
-	endTime = 11;
+	endTime = 60;
 
 	AddFontResource(L"Res\\Texture\\Dovemayo_gothic.ttf");
 
