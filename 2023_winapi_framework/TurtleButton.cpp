@@ -3,6 +3,7 @@
 #include "KeyMgr.h"
 #include "Texture.h"
 #include "ResMgr.h"
+#include "TimeMgr.h"
 #include "Core.h"
 
 

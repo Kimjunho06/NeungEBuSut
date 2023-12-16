@@ -6,6 +6,7 @@
 #include "KeyMgr.h"
 #include "Scene.h"
 #include "SceneMgr.h"
+#include "EventMgr.h"
 
 ExitButton::ExitButton()
 {
@@ -19,7 +20,8 @@ ExitButton::~ExitButton()
 
 void ExitButton::Update()
 {
-	Core::GetInst()->isExitOnButton = false;
+	if (Core::GetInst()->isExitOnButton)
+		Core::GetInst()->isExitOnButton = false;
 	if (IsClickAble(this)) {
 		Core::GetInst()->isExitOnButton = true;
 		if (KEY_DOWN(KEY_TYPE::LBUTTON))
@@ -31,7 +33,6 @@ void ExitButton::Update()
 
 void ExitButton::Render(HDC _dc)
 {
-	if (!Core::GetInst()->isGameStart) {
 		Vec2 vPos = GetPos();
 		Vec2 vScale = GetScale();
 		Vec2 vScaleOffset = GetScaleOffset();
@@ -69,54 +70,13 @@ void ExitButton::Render(HDC _dc)
 			, RGB(255, 0, 255));
 
 		DeleteDC(alphaDC);
-		DeleteObject(alphabit);
-	}
-	else {
-		Vec2 vPos = GetPos();
-		Vec2 vScale = GetScale();
-		Vec2 vScaleOffset = GetScaleOffset();
-		int Width = texture[1]->GetWidth();
-		int Height = texture[1]->GetHeight();
-
-		HDC alphaDC = CreateCompatibleDC(_dc);
-		HBITMAP alphabit = CreateCompatibleBitmap(_dc, Core::GetInst()->GetResolution().x, Core::GetInst()->GetResolution().y);
-		SelectObject(alphaDC, alphabit);
-
-		PatBlt(alphaDC, 0, 0, Core::GetInst()->GetResolution().x, Core::GetInst()->GetResolution().y, WHITENESS);
-
-		StretchBlt(alphaDC
-			, 0
-			, 0
-			, Width * vScaleOffset.x
-			, Height * vScaleOffset.y
-			, texture[1]->GetDC()
-			, 0
-			, 0
-			, Width
-			, Height
-			, SRCCOPY);
-
-		TransparentBlt(_dc
-			, (int)(vPos.x - Height * vScaleOffset.x / 2.f)
-			, (int)(vPos.y - Width * vScaleOffset.y / 2.f)
-			, Width * vScaleOffset.x
-			, Height * vScaleOffset.y
-			, alphaDC
-			, 0
-			, 0
-			, Width * vScaleOffset.x
-			, Height * vScaleOffset.y
-			, RGB(255, 0, 255));
-
-		DeleteDC(alphaDC);
-		DeleteObject(alphabit);
-	}
+		DeleteObject(alphabit);	
 }
 
 void ExitButton::OnClickEvent()
 {
 	if (Core::GetInst()->isGameStart) {
-		SceneMgr::GetInst()->LoadScene(L"MainScene");
+		EventMgr::GetInst()->ChangeScene(L"MainScene");
 		Core::GetInst()->isGameStart = false;
 		Core::GetInst()->gameTime = 0;
 	}

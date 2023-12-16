@@ -5,10 +5,12 @@
 #include "CollisionMgr.h"
 #include "Texture.h"
 #include "Core.h"
+#include "TimeMgr.h"
+
 
 Fish::Fish()
 	: texture(nullptr)
-	, speed(2)
+	, speed(1000)
 	, dir(DIRECTION::RIGHT)
 {
 	Vec2 vPos = GetPos();
@@ -37,7 +39,7 @@ void Fish::Update()
 	else if (vPos.x <= offset) {
 		dir = DIRECTION::RIGHT;
 	}
-	vPos.x += speed * (int)dir;
+	vPos.x += speed * (int)dir * fDT;
 
 	SetPos(vPos);
 

@@ -1,8 +1,8 @@
 #pragma once
-#include "Button.h"
+#include "Object.h"
 class Texture;
 class ExitButton :
-    public Button
+    public Object
 {
 public:
     ExitButton();
@@ -10,7 +10,7 @@ public:
 public:
     void Update() override;
     void Render(HDC _dc) override;
-    void OnClickEvent() override;
+    void OnClickEvent();
 private:
     Texture* texture[2];
 };

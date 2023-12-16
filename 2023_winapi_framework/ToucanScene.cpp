@@ -92,9 +92,9 @@ void ToucanScene::Init()
 	wood->SetScale(Vec2(512.f, 512.f));
 	wood->SetScaleOffset(Vec2(0.98f, 1.f));
 	AddObject(wood, OBJECT_GROUP::MAP);
-	AddUI(exitButton, UI_GROUP::BUTTON);
-	AddUI(gametimeImage, UI_GROUP::IMAGE);
-	AddUI(endtimeImage, UI_GROUP::IMAGE);
+	AddObject(exitButton, OBJECT_GROUP::UI);
+	AddObject(gametimeImage, OBJECT_GROUP::UI);
+	AddObject(endtimeImage, OBJECT_GROUP::UI);
 }
 
 void ToucanScene::Update()

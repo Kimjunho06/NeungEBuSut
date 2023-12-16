@@ -42,7 +42,7 @@ void Kangaroo::Update()
 	}
 
 	if (isJump) {
-		vPos.y -= 3.5f;
+		vPos.y -= 3.5f* 2;
 		jumpTime += fDT;
 		if (jumpTime > 0.5f) {
 			isJump = false;

@@ -80,9 +80,9 @@ void SeaOtterScene::Init()
 	AddObject(rock, OBJECT_GROUP::ROCK);
 	AddObject(clam, OBJECT_GROUP::CLAM);
 
-	AddUI(exitButton, UI_GROUP::BUTTON);
-	AddUI(gametimeImage, UI_GROUP::IMAGE);
-	AddUI(endtimeImage, UI_GROUP::IMAGE);
+	AddObject(exitButton, OBJECT_GROUP::UI);
+	AddObject(gametimeImage, OBJECT_GROUP::UI);
+	AddObject(endtimeImage, OBJECT_GROUP::UI);
 }
 
 void SeaOtterScene::Update()

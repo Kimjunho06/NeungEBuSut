@@ -59,7 +59,3 @@ void GameTimeImage::Render(HDC _dc)
 	DeleteDC(alphaDC);
 	DeleteObject(alphabit);
 }
-
-void GameTimeImage::OnClickEvent()
-{
-}

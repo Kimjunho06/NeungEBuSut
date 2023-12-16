@@ -59,7 +59,3 @@ void EndTimeImage::Render(HDC _dc)
 	DeleteDC(alphaDC);
 	DeleteObject(alphabit);
 }
-
-void EndTimeImage::OnClickEvent()
-{
-}

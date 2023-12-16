@@ -1,8 +1,8 @@
 #pragma once
-#include "Button.h"
+#include "Object.h"
 class Texture;
 class EndTimeImage :
-    public Button
+    public Object
 {
 public:
     EndTimeImage();
@@ -10,7 +10,6 @@ public:
 public:
     void Update() override;
     void Render(HDC _dc) override;
-    void OnClickEvent() override;
 
 private:
     Texture* texture;
