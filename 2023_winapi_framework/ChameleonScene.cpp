@@ -10,9 +10,12 @@
 #include "GameTimeImage.h"
 #include "EndTimeImage.h"
 #include "ExitButton.h"
+#include "ResMgr.h"
 
 void ChameleonScene::Init()
 {
+	ResMgr::GetInst()->LoadSound(L"GameBGM", L"Texture\\Retro_bgm.wav", true);
+
 	srand((unsigned int)time(NULL));
 	chameleonObj.clear();
 	chameleonColorObj.clear();

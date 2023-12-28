@@ -10,6 +10,7 @@
 #include "GameTimeImage.h"
 #include "EndTimeImage.h"
 #include "ExitButton.h"
+#include "ResMgr.h"
 
 
 void SlothScene::Init()
@@ -106,7 +107,13 @@ void SlothScene::Update()
 		if (!obj->isHang) return;
 	}
 
-	SceneMgr::GetInst()->LoadScene(L"Stage_1");
+	SceneMgr::GetInst()->LoadScene(L"EndScene");
+	Core::GetInst()->isGameClear = true;
+	Core::GetInst()->isGameStart = false;
+	if (Core::GetInst()->isGameClear > Core::GetInst()->gameTime) {
+		Core::GetInst()->isGameClear = Core::GetInst()->gameTime;
+	}
+	ResMgr::GetInst()->Stop(SOUND_CHANNEL::BGM);
 }
 
 void SlothScene::Render(HDC _dc)

@@ -48,6 +48,7 @@ private:
 	void Update();
 	void Render();
 	void CreateGDI();
+public:
 	wstring CalcTime(int time);
 public:
 	bool isDragging;
@@ -55,6 +56,9 @@ public:
 	bool isExitOnButton;
 	float gameTime;
 	float endTime;
+	bool isGameClear;
+	bool isGameOver;
+	float recordTime;
 private:
 	HWND	m_hWnd;
 	HDC		m_hDC; // ∏ﬁ¿Œ DC

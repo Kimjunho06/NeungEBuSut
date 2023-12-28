@@ -69,4 +69,6 @@ void RestartButton::Render(HDC _dc)
 void RestartButton::OnClickEvent()
 {
 	SceneMgr::GetInst()->LoadScene(L"Stage_1");
+	Core::GetInst()->isGameStart = true;
+	Core::GetInst()->gameTime = 0;
 }

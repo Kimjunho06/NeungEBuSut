@@ -22,6 +22,7 @@ void MainBackground::Update()
         if (KEY_DOWN(KEY_TYPE::LBUTTON)) // 좌측 마우스 버튼으로 클릭했는가
         {
 			Core::GetInst()->isGameStart = true;
+			ResMgr::GetInst()->Stop(SOUND_CHANNEL::BGM);
             SceneMgr::GetInst()->LoadScene(L"Stage_1");
         }
     }

@@ -22,7 +22,9 @@ bool Core::Init(HWND _hWnd, POINT _ptResolution)
 	isDragging = false;
 	isGameStart = false;
 	gameTime = 0;
-	endTime = 59;
+	endTime = 63;
+	recordTime = endTime;
+
 
 	AddFontResource(L"Res\\Texture\\Dovemayo_gothic.ttf");
 
@@ -46,6 +48,8 @@ bool Core::Init(HWND _hWnd, POINT _ptResolution)
 	KeyMgr::GetInst()->Init();
 	ResMgr::GetInst()->Init();
 	SceneMgr::GetInst()->Init();
+
+	ResMgr::GetInst()->LoadSound(L"GameBGM", L"Texture\\Bgm.wav", true);
 
 	return true;
 }
@@ -75,12 +79,14 @@ void Core::Update()
 	SceneMgr::GetInst()->Update();
 	CollisionMgr::GetInst()->Update();
 
-	if (isGameStart)
+	if (isGameStart) {
 		gameTime += fDT;
+		ResMgr::GetInst()->Play(L"GameBGM");
+	}
 	if (gameTime >= endTime) {
-		SceneMgr::GetInst()->LoadScene(L"MainScene"); 
+		SceneMgr::GetInst()->LoadScene(L"EndScene"); 
+		Core::GetInst()->isGameOver = true;
 		isGameStart = false;
-		gameTime = 0;
 	}
 //	Vec2 vPos = m_obj.GetPos();
 //

@@ -4,6 +4,8 @@
 #include "MainButton.h"
 #include "RestartButton.h"
 #include "EndBackground.h"
+#include "SceneMgr.h"
+#include "KeyMgr.h"
 
 void EndScene::Init()
 {
@@ -16,28 +18,19 @@ void EndScene::Init()
 	endBackground->SetScaleOffset(Vec2(1, 1));
 
 	AddObject(endBackground, OBJECT_GROUP::ENDBACKGROUND);
-
-	int x = resolution.x / 2;
-	int y = resolution.y / 2;
-
-	MainButton* mainButton = new MainButton;
-	RestartButton* restartButton = new RestartButton;
-
-	mainButton->SetPos(Vec2(x-110, y+200));
-	mainButton->SetScale(Vec2(300.f, 70.f));
-	mainButton->SetScaleOffset(Vec2(1, 1));
-
-	restartButton->SetPos(Vec2(x-110, y+300));
-	restartButton->SetScale(Vec2(300.f, 70.f));
-	restartButton->SetScaleOffset(Vec2(1, 1));
-
-	AddUI(mainButton, UI_GROUP::BUTTON);
-	AddUI(restartButton, UI_GROUP::BUTTON);
 }
 
 void EndScene::Update()
 {
 	Scene::Update();
+
+	if (KEY_DOWN(KEY_TYPE::LBUTTON)) {
+		SceneMgr::GetInst()->LoadScene(L"MainScene");
+		Core::GetInst()->isGameStart = false;
+		Core::GetInst()->gameTime = 0;
+		Core::GetInst()->isGameClear = false;
+		Core::GetInst()->isGameOver = false;
+	}
 }
 
 void EndScene::Render(HDC _dc)
@@ -48,11 +41,25 @@ void EndScene::Render(HDC _dc)
 
 	wstring GameClearText = L"GameClear";
 	wstring GameOverText = L"Game Over";
+	wstring label = L"Tab To Menu!";
 
 	SetBkMode(_dc, 1);
 
-	TextOut(_dc, vPos.x / 2-64, vPos.y / 2 -200, GameClearText.c_str(), GameClearText.length());
-	TextOut(_dc, vPos.x / 2 - 68, vPos.y / 2 - 200, GameOverText.c_str(), GameOverText.length());
+	if (Core::GetInst()->isGameClear)
+		TextOut(_dc, vPos.x / 2-64, vPos.y / 2 -200, GameClearText.c_str(), GameClearText.length());
+	if (Core::GetInst()->isGameOver)
+		TextOut(_dc, vPos.x / 2 - 68, vPos.y / 2 - 200, GameOverText.c_str(), GameOverText.length());
+
+	wstring time = L"Clear Time : " + Core::GetInst()->CalcTime(Core::GetInst()->gameTime);
+	wstring recordtime = L"Record Time : " + Core::GetInst()->CalcTime(Core::GetInst()->gameTime);
+	
+	if (!Core::GetInst()->isGameOver) {
+		TextOut(_dc, 120, 300, time.c_str(), time.size());
+		TextOut(_dc, 120, 400, recordtime.c_str(), recordtime.size());
+	}
+	
+
+	TextOut(_dc, vPos.x / 4 + 40, vPos.y - 100, label.c_str(), label.length());
 }
 
 void EndScene::Release()

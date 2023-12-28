@@ -70,4 +70,6 @@ void MainButton::Render(HDC _dc)
 void MainButton::OnClickEvent()
 {
 	SceneMgr::GetInst()->LoadScene(L"MainScene");
+	Core::GetInst()->isGameStart = false;
+	Core::GetInst()->gameTime = 0;
 }

@@ -295,9 +295,6 @@
     <ClInclude Include="Toucan.h">
       <Filter>Engine\04. Object\Object_Stage_7</Filter>
     </ClInclude>
-    <ClInclude Include="Kangaroo.h" />
-    <ClInclude Include="Ground.h" />
-    <ClInclude Include="Sloth.h" />
     <ClInclude Include="MainScene.h">
       <Filter>Engine\05. Scene\InGameScene</Filter>
     </ClInclude>
@@ -309,6 +306,28 @@
     </ClInclude>
     <ClInclude Include="StagePanel.h">
       <Filter>Engine\04. Object\Object_UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="EndBackground.h" />
+    <ClInclude Include="EndScene.h" />
+    <ClInclude Include="MainButton.h" />
+    <ClInclude Include="RestartButton.h" />
+    <ClInclude Include="EndTimeImage.h">
+      <Filter>Engine\09.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ExitButton.h">
+      <Filter>Engine\09.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTimeImage.h">
+      <Filter>Engine\09.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h">
+      <Filter>Engine\04. Object\Object_Stage_8</Filter>
+    </ClInclude>
+    <ClInclude Include="Kangaroo.h">
+      <Filter>Engine\04. Object\Object_Stage_8</Filter>
+    </ClInclude>
+    <ClInclude Include="Sloth.h">
+      <Filter>Engine\04. Object\Object_Stage_8</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -484,9 +503,6 @@
     <ClCompile Include="Toucan.cpp">
       <Filter>Engine\04. Object\Object_Stage_7</Filter>
     </ClCompile>
-    <ClCompile Include="Kangaroo.cpp" />
-    <ClCompile Include="Ground.cpp" />
-    <ClCompile Include="Sloth.cpp" />
     <ClCompile Include="MainScene.cpp">
       <Filter>Engine\05. Scene\InGameScene</Filter>
     </ClCompile>
@@ -498,6 +514,28 @@
     </ClCompile>
     <ClCompile Include="StagePanel.cpp">
       <Filter>Engine\04. Object\Object_UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="EndBackground.cpp" />
+    <ClCompile Include="EndScene.cpp" />
+    <ClCompile Include="MainButton.cpp" />
+    <ClCompile Include="RestartButton.cpp" />
+    <ClCompile Include="EndTimeImage.cpp">
+      <Filter>Engine\09.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ExitButton.cpp">
+      <Filter>Engine\09.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTimeImage.cpp">
+      <Filter>Engine\09.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>Engine\04. Object\Object_Stage_8</Filter>
+    </ClCompile>
+    <ClCompile Include="Kangaroo.cpp">
+      <Filter>Engine\04. Object\Object_Stage_8</Filter>
+    </ClCompile>
+    <ClCompile Include="Sloth.cpp">
+      <Filter>Engine\04. Object\Object_Stage_8</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

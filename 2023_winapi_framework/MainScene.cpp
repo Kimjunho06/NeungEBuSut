@@ -3,6 +3,7 @@
 #include "Core.h"
 #include "MainBackground.h"
 #include "SceneMgr.h"
+#include "ResMgr.h"
 #include "ExitButton.h"
 
 
@@ -18,11 +19,13 @@ void MainScene::Init()
 	POINT resolution = Core::GetInst()->GetResolution();
 	float x = resolution.x / 1.33f;
 	float y = resolution.y / 3.f;
+	ResMgr::GetInst()->LoadSound(L"startBgm", L"Texture\\StartBgm.wav", true);
 
 	mainBackground->SetPos(Vec2(x, y));
 	mainBackground->SetScale(Vec2(480, 720));
 	mainBackground->SetScaleOffset(Vec2(1, 1));
 
+	ResMgr::GetInst()->Play(L"startBgm");
 	AddObject(exitButton, OBJECT_GROUP::UI);
 
 	AddObject(mainBackground, OBJECT_GROUP::MAINBACKGROUND);
